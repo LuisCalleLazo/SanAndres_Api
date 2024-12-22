@@ -4,15 +4,16 @@ using SanAndres_Api.Models.Templeates;
 
 namespace SanAndres_Api.Models
 {
-  [Table("category")]
-  public class Category : HistorymModel
+  [Table("city")]
+  public class City : HistorymModel
   {
     [Key]
     public int Id { get; set; }
     public string Name { get; set; }
-    public string Description { get; set; }
-    public string Asset { get; set; }
+    public string Photo { get; set; }
+    public int CountryId { get; set; }
 
-    public virtual ICollection<Autopart> Autoparts { get; set; }
+    public virtual Country Country { get; set; }
+    public virtual ICollection<UserInfo> UserInfos { get; set; }
   }
 }
