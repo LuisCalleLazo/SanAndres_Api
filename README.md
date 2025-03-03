@@ -11,7 +11,9 @@
 ### 🛠 Configuración del proyecto
 1. **Clonar el repositorio**
    ```sh
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/LuisCalleLazo/SanAndres_Api.git
+   o
+   git clone git@github.com:LuisCalleLazo/SanAndres_Api.git
    cd tu-repositorio
    ```
 
