@@ -2,6 +2,9 @@ stages:
   - build
   - deploy
 
+variables:
+  OUTPUT_DIR: "output"
+
 build:
   stage: build
   image: mcr.microsoft.com/dotnet/sdk:8.0
