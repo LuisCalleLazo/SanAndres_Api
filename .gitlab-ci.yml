@@ -2,6 +2,11 @@ stages:
   - build
   - deploy
 
+image: docker:latest
+
+services:
+  - docker:dind
+
 build:
   stage: build
   script:
