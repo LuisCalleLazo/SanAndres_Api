@@ -1,13 +1,20 @@
 stages:
   - build
-  - test
+  - deploy
 
 build:
   stage: build
   script:
-    - echo "Building Proyect"
+    - docker build -t sanandres_api:latest .
+    - docker save sanandres_api:latest > sanandres_api.tar
+  artifacts:
+    paths:
+      - sanandres_api.tar
 
-test:
-  stage: test
+deploy:
+  stage: deploy
   script:
-    - echo "Testeando el proyecto"
+    - docker load < sanandres_api.tar
+    - docker stop san-andres-api || true
+    - docker rm san-andres-api || true
+    - docker run -d --name san-andres-api -p $PORT_API:8080 sanandres_api:latest
