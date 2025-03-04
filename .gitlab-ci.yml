@@ -2,28 +2,24 @@ stages:
   - build
   - deploy
 
-variables:
-  OUTPUT_DIR: "output"
+image: docker:latest
+
+services:
+  - docker:dind
 
 build:
   stage: build
-  image: mcr.microsoft.com/dotnet/sdk:8.0
   script:
-    - dotnet restore
-    - dotnet build --configuration Release --no-restore
-    - dotnet publish --configuration Release --output $OUTPUT_DIR
-    - ls -R $OUTPUT_DIR
+    - docker build -t sanandres_api:latest .
+    - docker save sanandres_api:latest > sanandres_api.tar
   artifacts:
     paths:
-      - $OUTPUT_DIR
-    expire_in: 2 days
+      - sanandres_api.tar
 
 deploy:
   stage: deploy
-  image: curlimages/curl:latest
-  dependencies:
-    - build
   script:
-    - echo "Deploying to VPS"
-    - curl -T "$CI_PROJECT_DIR/output/*" ftp://$VPS_USER:$VPS_PASSWORD@$VPS_HOST/path/to/deploy/ --ftp-create-dirs
-    - echo "Deployment completed"
+    - docker load < sanandres_api.tar
+    - docker stop san-andres-api || true
+    - docker rm san-andres-api || true
+    - docker run -d --name san-andres-api -p $PORT_API:8080 sanandres_api:latest
