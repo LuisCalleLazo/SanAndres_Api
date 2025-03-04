@@ -12,6 +12,7 @@ build:
     - dotnet restore
     - dotnet build --configuration Release --no-restore
     - dotnet publish --configuration Release --output $OUTPUT_DIR
+    - ls -R $OUTPUT_DIR
   artifacts:
     paths:
       - $OUTPUT_DIR
@@ -24,5 +25,5 @@ deploy:
     - build
   script:
     - echo "Deploying to VPS"
-    - curl -T "$OUTPUT_DIR/*" ftp://$VPS_USER:$VPS_PASSWORD@$VPS_HOST/path/to/deploy/ --ftp-create-dirs
+    - curl -T "$CI_PROJECT_DIR/output/*" ftp://$VPS_USER:$VPS_PASSWORD@$VPS_HOST/path/to/deploy/ --ftp-create-dirs
     - echo "Deployment completed"
