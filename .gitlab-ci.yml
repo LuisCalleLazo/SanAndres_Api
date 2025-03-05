@@ -12,8 +12,10 @@ build:
   tags:
     - api
   script:
-    - docker build -t sanandres_api:latest .
-    - docker save sanandres_api:latest > sanandres_api.tar
+    - docker load < sanandres_api.tar
+    - if [ "$(docker ps -q -f name=san-andres-api)" ]; then docker stop san-andres-api; fi
+    - if [ "$(docker ps -aq -f name=san-andres-api)" ]; then docker rm san-andres-api; fi
+    - docker run -d --name san-andres-api -p $PORT_API:8080 sanandres_api:latest
   artifacts:
     paths:
       - sanandres_api.tar
