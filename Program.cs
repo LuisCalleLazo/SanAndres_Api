@@ -5,7 +5,6 @@ using SanAndres_Api.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 // Cloudinary
 builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("CloudinarySettings"));
 
