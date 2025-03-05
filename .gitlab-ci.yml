@@ -10,7 +10,7 @@ services:
 build:
   stage: build
   tags:
-    - api  
+    - api
   script:
     - docker build -t sanandres_api:latest .
     - docker save sanandres_api:latest > sanandres_api.tar
@@ -21,7 +21,7 @@ build:
 deploy:
   stage: deploy
   tags:
-    - api  
+    - api
   script:
     - docker load < sanandres_api.tar
     - docker stop san-andres-api || true
