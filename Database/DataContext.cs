@@ -34,6 +34,7 @@ namespace SanAndres_Api.Database
     public DbSet<AutopartInfo> AutopartInfos { get; set; }
     public DbSet<AutopartOfSeller> AutopartOfSellers { get; set; }
     public DbSet<AutopartTypeInfo> AutopartTypeInfos { get; set; }
+    public DbSet<Token> Tokens { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
