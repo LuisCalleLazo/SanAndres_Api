@@ -1,6 +1,6 @@
 namespace SanAndres_Api.Models.Templeates
 {
-  public class HistorymModel
+  public class AuditModel
   {
     public DateTime CreateAt { get; set; }
     public DateTime UpdateAt { get; set; }

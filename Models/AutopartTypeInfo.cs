@@ -5,7 +5,7 @@ using SanAndres_Api.Models.Templeates;
 namespace SanAndres_Api.Models
 {
   [Table("autopart_type_info")]
-  public class AutopartTypeInfo : HistorymModel
+  public class AutopartTypeInfo : AuditModel
   {
     [Key]
     public int Id { get; set; }

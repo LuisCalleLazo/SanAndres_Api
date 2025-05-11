@@ -5,7 +5,7 @@ using SanAndres_Api.Models.Templeates;
 namespace SanAndres_Api.Models
 {
   [Table("category")]
-  public class Category : HistorymModel
+  public class Category : AuditModel
   {
     [Key]
     public int Id { get; set; }
