@@ -12,6 +12,8 @@ namespace SanAndres_Api.Models
     public CompanyInfoType Type { get; set; }
     public string ValueInfo { get; set; }
     public string Description { get; set; }
+    public int CompanyId { get; set; }
+
     public virtual Company Companies { get; set; }
   }
 
