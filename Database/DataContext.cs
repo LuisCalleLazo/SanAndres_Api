@@ -215,6 +215,15 @@ namespace SanAndres_Api.Database
         tb.HasKey(p => p.Id);
 
       });
+
+      modelBuilder.Entity<Token>(tb => {
+        tb.HasKey(p => p.Id);
+
+        tb.HasOne(p => p.User)
+          .WithMany(p => p.Tokens)
+          .HasForeignKey(p => p.UserId)
+          .IsRequired();
+      });
     }
   }
 }

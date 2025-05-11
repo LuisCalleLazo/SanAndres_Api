@@ -19,5 +19,6 @@ namespace SanAndres_Api.Models
     public virtual UserInfo UserInfo { get; set; }
     public virtual Customer Customer { get; set; }
     public virtual Seller Seller { get; set; }
+    public virtual ICollection<Token> Tokens { get; set; }
   }
 }

@@ -10,6 +10,7 @@ namespace SanAndres_Api.Config
     public static void LoadRepositories(this IServiceCollection services)
     {
       services.AddScoped<ITRepository, TRepository>();
+      services.AddScoped<ITokenRepository, TokenRepository>();
     }
 
     public static void LoadServices(this IServiceCollection services)
