@@ -15,12 +15,13 @@ namespace SanAndres_Api.Services
     private readonly ITokenRepository _repo;
     private readonly IUserRepository _userRepo;
     private readonly ITRepository _trepo;
-    public AuthService(ITokenRepository repo, IConfiguration config, ITRepository trepo, IUserRepository userRepo)
+    public AuthService(ITokenRepository repo, IConfiguration config, ITRepository trepo, IUserRepository userRepo, IMapper mapper)
     {
       _repo = repo;
       _config = config;
       _trepo = trepo;
       _userRepo = userRepo;
+      _mapper = mapper;
     }
     
     public async Task<AuthResponseDto> Authentication(User user)
@@ -53,7 +54,11 @@ namespace SanAndres_Api.Services
       Guid salt = Guid.NewGuid();
       register.Password = PasswordHashSecurity.HashPassword(register.Password, salt);
       var userCreate = _mapper.Map<User>(register);
+      var userInfoCreate = _mapper.Map<UserInfo>(register);
       var user = await _userRepo.CreateUser(userCreate, salt);
+
+      userInfoCreate.Id = user.Id;
+      await _trepo.Create(userInfoCreate);
 
       return await Authentication(user);
     }

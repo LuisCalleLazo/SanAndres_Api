@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SanAndres_Api.Database.Seeders;
 using SanAndres_Api.Models;
 
 namespace SanAndres_Api.Database
@@ -93,11 +94,13 @@ namespace SanAndres_Api.Database
           .WithMany(p => p.Cities)
           .HasForeignKey(p => p.CountryId)
           .IsRequired();
+
+        tb.HasData(CitySeed.GetSeed());
       });
 
       modelBuilder.Entity<Country>(tb => {
         tb.HasKey(p => p.Id);
-
+        tb.HasData(CountrySeed.GetSeed());
       });
       
       modelBuilder.Entity<Company>(tb => {

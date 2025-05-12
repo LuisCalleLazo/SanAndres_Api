@@ -11,11 +11,13 @@ namespace SanAndres_Api.Config
     {
       services.AddScoped<ITRepository, TRepository>();
       services.AddScoped<ITokenRepository, TokenRepository>();
+      services.AddScoped<IUserRepository, UserRepository>();
     }
 
     public static void LoadServices(this IServiceCollection services)
     {
       services.AddScoped<IAuthService, AuthService>();
+      services.AddScoped<IUserService, UserService>();
     }
   }
 }

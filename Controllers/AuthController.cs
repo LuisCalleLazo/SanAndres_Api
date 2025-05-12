@@ -39,7 +39,7 @@ namespace SanAndres_Api.Controllers
       }
     }
 
-    [Authorize]
+    // [Authorize]
     [HttpPost("register-user")]
     public async Task<IActionResult> RegisterUser([FromBody] AuthRegisterDto create)
     {
