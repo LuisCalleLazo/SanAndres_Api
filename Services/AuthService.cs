@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.Extensions.Options;
 using SanAndres_Api.Dtos;
 using SanAndres_Api.Helpers;
 using SanAndres_Api.Models;
@@ -10,12 +11,12 @@ namespace SanAndres_Api.Services
 {
   public class AuthService : IAuthService
   {
-    private readonly IConfiguration _config;
+    private readonly IOptions<JwtSettings> _config;
     private readonly IMapper _mapper;
     private readonly ITokenRepository _repo;
     private readonly IUserRepository _userRepo;
     private readonly ITRepository _trepo;
-    public AuthService(ITokenRepository repo, IConfiguration config, ITRepository trepo, IUserRepository userRepo, IMapper mapper)
+    public AuthService(ITokenRepository repo, IOptions<JwtSettings> config, ITRepository trepo, IUserRepository userRepo, IMapper mapper)
     {
       _repo = repo;
       _config = config;
@@ -27,12 +28,13 @@ namespace SanAndres_Api.Services
     public async Task<AuthResponseDto> Authentication(User user)
     {
       var response = new AuthResponseDto();
-      var jwt = _config.GetSection("JwtSettings").Get<JwtSettings>();
+      var jwt = _config.Value.Key;
+      Console.WriteLine("KEY: "+ _config.Value.Key);
       response.User = _mapper.Map<UserResponseDto>(user);
-      response.CurrentToken = JwtSecurity.GenerateToken(jwt, response.User, 1);
+      response.CurrentToken = JwtSecurity.GenerateToken(_config.Value, response.User, 1);
       response.RefreshToken = JwtSecurity.GenerateRefreshToken();
       await _repo.DesactiveToken(user.Id);
-      await _repo.CreateToken(_mapper.Map<Token>(response), user.Id, jwt.TimeValidMin);
+      await _repo.CreateToken(_mapper.Map<Token>(response), user.Id, _config.Value.TimeValidMin);
       return response;
     }
 

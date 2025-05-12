@@ -32,8 +32,11 @@ builder.Services.LoadServices();
 // Habilitando el contexto de la base de datos
 builder.Services.ConfigureContext(builder);
 
-// Jasper Reports Config
+// Jasper Reports Settings
 builder.Services.Configure<JasperSettings>(builder.Configuration.GetSection("JasperSettings"));
+
+// Jwt Settings
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
 // Endpoints
 builder.Services.AddEndpointsApiExplorer();
