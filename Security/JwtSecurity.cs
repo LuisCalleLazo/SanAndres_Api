@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using SanAndres_Api.Dtos;
+using SanAndres_Api.Helpers;
 
 namespace SanAndres_Api.Security
 {
@@ -11,7 +12,7 @@ namespace SanAndres_Api.Security
   {
 
     public static string GenerateToken(
-      AuthJwtDto jwt, UserResponseDto user, int rolId)
+      JwtSettings jwt, UserResponseDto user, int rolId)
     {
       var tokenHandler = new JwtSecurityTokenHandler();
 
