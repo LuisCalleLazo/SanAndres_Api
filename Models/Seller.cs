@@ -9,11 +9,11 @@ namespace SanAndres_Api.Models
   {
     [Key]
     public int Id { get; set; }
-    public int CompanyId { get; set; }
+    // public int CompanyId { get; set; }
 
-    public virtual ICollection<AutopartOfSeller> AutopartOfSellers { get; set; }
-    public virtual ICollection<SaleDetail> SaleDetails { get; set; }
-    public virtual User User { get; set; }
-    public virtual Company Company { get; set; }
+    // public virtual ICollection<AutopartOfSeller> AutopartOfSellers { get; set; }
+    // public virtual ICollection<SaleDetail> SaleDetails { get; set; }
+    // public virtual User User { get; set; }
+    // public virtual Company Company { get; set; }
   }
 }
