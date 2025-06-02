@@ -13,6 +13,7 @@ namespace SanAndres_Api.Helpers
 
       CreateMap<AuthRegisterDto, User>();
       CreateMap<AuthRegisterDto, UserInfo>();
+      CreateMap<AutopartOfSeller, AutopartOfSellerDto>();
 
       CreateMap<AuthResponseDto, Token>()
       .ForMember(dest => dest.UserId, opt => opt.Ignore())

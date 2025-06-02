@@ -24,7 +24,7 @@ namespace SanAndres_Api.Security
         
         new Claim("id", user.Id.ToString()),
         new Claim("name", user.Name),
-        new Claim("rol", rolId.ToString()),
+        new Claim("rol", user.IsSeller ? "seller" : "customer"),
       };
 
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));
