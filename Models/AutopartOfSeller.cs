@@ -19,7 +19,7 @@ namespace SanAndres_Api.Models
     public decimal WholessalePrice { get; set; }
     public decimal WholessalePricePublic { get; set; }
 
-    // public virtual Autopart Autopart { get; set; }
-    // public virtual Seller Seller { get; set; }
+    public virtual Autopart Autopart { get; set; }
+    public virtual Seller Seller { get; set; }
   }
 }

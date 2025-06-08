@@ -9,5 +9,12 @@ namespace SanAndres_Api.Models.Templeates
     public int CreateUserId { get; set; }
     public int UpdateUserId { get; set; }
     public int DeleteUserId { get; set; }
+
+    public AuditModel()
+    {
+      CreateAt = DateTime.UtcNow;
+      UpdateAt = DateTime.MinValue;
+      DeleteAt = DateTime.MinValue;
+    }
   }
 }

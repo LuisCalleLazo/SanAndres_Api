@@ -34,7 +34,7 @@ namespace SanAndres_Api.Controllers
       }catch(Exception err)
       {
         _logger.LogError(err.Message);
-        _logger.LogError(err.StackTrace);
+        Console.WriteLine(err.StackTrace);
         return BadRequest(err.Message);
       }
     }

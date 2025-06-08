@@ -28,10 +28,12 @@ namespace SanAndres_Api.Services
     public async Task<AuthResponseDto> Authentication(User user)
     {
       var response = new AuthResponseDto();
-      var jwt = _config.Value.Key;
-      Console.WriteLine("KEY: "+ _config.Value.Key);
       response.User = _mapper.Map<UserResponseDto>(user);
-      response.CurrentToken = JwtSecurity.GenerateToken(_config.Value, response.User, 1);
+
+      bool isCustomer = await _userRepo.UserIsCustomer(user.Id);
+      bool isSeller = await _userRepo.UserIsSeller(user.Id);
+
+      response.CurrentToken = JwtSecurity.GenerateToken(_config.Value, response.User, isSeller, isCustomer);
       response.RefreshToken = JwtSecurity.GenerateRefreshToken();
       await _repo.DesactiveToken(user.Id);
       await _repo.CreateToken(_mapper.Map<Token>(response), user.Id, _config.Value.TimeValidMin);
@@ -56,11 +58,23 @@ namespace SanAndres_Api.Services
       Guid salt = Guid.NewGuid();
       register.Password = PasswordHashSecurity.HashPassword(register.Password, salt);
       var userCreate = _mapper.Map<User>(register);
+      
       var userInfoCreate = _mapper.Map<UserInfo>(register);
       var user = await _userRepo.CreateUser(userCreate, salt);
 
       userInfoCreate.Id = user.Id;
       await _trepo.Create(userInfoCreate);
+
+      if (register.SellerOrCustomer)
+      {
+        var seller = new Seller { Id = user.Id };
+        await _trepo.Create(seller);
+      }
+      else
+      {
+        var customer = new Customer { Id = user.Id };
+        await _trepo.Create(customer);
+      }
 
       return await Authentication(user);
     }

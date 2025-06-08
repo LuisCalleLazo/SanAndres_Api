@@ -13,13 +13,12 @@ namespace SanAndres_Api.Models
     public string Email { get; set; }
     public string Password { get; set; }
     public Guid PasswordSalt { get; set; }
-    public bool IsSeller { get; set; }
 
     // 
-    // public virtual Admin Admin { get; set; }
-    // public virtual UserInfo UserInfo { get; set; }
-    // public virtual Customer Customer { get; set; }
-    // public virtual Seller Seller { get; set; }
-    // public virtual ICollection<Token> Tokens { get; set; }
+    public virtual Admin Admin { get; set; }
+    public virtual UserInfo UserInfo { get; set; }
+    public virtual Customer Customer { get; set; }
+    public virtual Seller Seller { get; set; }
+    public virtual ICollection<Token> Tokens { get; set; }
   }
 }

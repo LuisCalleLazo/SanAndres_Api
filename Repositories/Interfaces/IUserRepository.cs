@@ -11,5 +11,7 @@ namespace SanAndres_Api.Repositories.Interfaces
     Task<User> CreateUser(User create, Guid salt);
     Task<User> GetUserByName(string name);
     Task<User> GetUserByEmail(string email);
+    Task<bool> UserIsSeller(int userId);
+    Task<bool> UserIsCustomer(int userId);
   }
 }

@@ -12,7 +12,7 @@ namespace SanAndres_Api.Security
   {
 
     public static string GenerateToken(
-      JwtSettings jwt, UserResponseDto user, int rolId)
+      JwtSettings jwt, UserResponseDto user, bool isSeller, bool isCustomer)
     {
       var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -24,7 +24,8 @@ namespace SanAndres_Api.Security
         
         new Claim("id", user.Id.ToString()),
         new Claim("name", user.Name),
-        new Claim("rol", user.IsSeller ? "seller" : "customer"),
+        new Claim("customer", isCustomer.ToString()),
+        new Claim("seller", isSeller.ToString()),
       };
 
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));

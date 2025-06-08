@@ -25,8 +25,8 @@ namespace SanAndres_Api.Dtos
     public DateTime BirthDate { get; set; }
     public string Adress { get; set; }
     public string Ci { get; set; }
-    public int CityId { get; set; } 
-    public bool IsSeller { get; set; }
+    public int CityId { get; set; }
+    public bool SellerOrCustomer { get; set; }
   }
   public class AuthRefreshTokenRequestDto
   {

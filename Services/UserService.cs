@@ -28,23 +28,24 @@ namespace SanAndres_Api.Services
     public async Task<UserToListDto> PatchUser(UserToPatchDto patch, int userId)
     {
       var user = await _repo.GetUserAuthById(userId);
-
-      if(patch.Name != null)
+      var userInfo = await _trepo.GetById<UserInfo>(user.Id);
+      
+      if (patch.Name != null)
         user.Name = patch.Name;
       if(patch.Email != null)
         user.Email = patch.Email;
-      // if(patch.FirstName != null)
-      //   user.FirstName = patch.FirstName;
-      // if(patch.MomLastName != null)
-      //   user.MomLastName = patch.MomLastName;
-      // if(patch.DadLastName != null)
-      //   user.DadLastName = patch.DadLastName;
-      // if(patch.BirthDate != null)
-      //   user.BirthDate = (DateTime)patch.BirthDate;
-      // if(patch.City != null)
-      //   user.City = patch.City;
-      // if(patch.Ci != null)
-      //   user.Ci = patch.Ci;
+      if(patch.MomLastName != null)
+        userInfo.MomLastName = patch.MomLastName;
+      if(patch.DadLastName != null)
+        userInfo.DadLastName = patch.DadLastName;
+      if(patch.BirthDate != null)
+        userInfo.BirthDate = (DateTime)patch.BirthDate;
+      if(patch.CityId != null)
+        userInfo.CityId = (int)patch.CityId;
+      if(patch.Ci != null)
+        userInfo.Ci = patch.Ci;
+      if(patch.Address != null)
+        userInfo.Adress = patch.Address;
       if(patch.Password != null)
       {
         Guid salt = Guid.NewGuid();
@@ -52,8 +53,9 @@ namespace SanAndres_Api.Services
         user.PasswordSalt = salt;
       }
       
-
+      
       await _trepo.Update(user);
+      await _trepo.Update(userInfo);
 
       return _mapper.Map<UserToListDto>(user);
     }

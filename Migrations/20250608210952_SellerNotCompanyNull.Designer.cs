@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SanAndres_Api.Database;
@@ -11,9 +12,11 @@ using SanAndres_Api.Database;
 namespace SanAndres_Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250608210952_SellerNotCompanyNull")]
+    partial class SellerNotCompanyNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -399,7 +402,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 1,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8347),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(382),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -411,7 +414,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 2,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8352),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(387),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -423,7 +426,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 3,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8353),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(402),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -435,7 +438,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 4,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8354),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(403),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -447,7 +450,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 5,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8381),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(403),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -459,7 +462,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 6,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8383),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(405),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -471,7 +474,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 7,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8383),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(406),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -483,7 +486,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 8,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8384),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(407),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -495,7 +498,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 9,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8385),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(408),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -507,7 +510,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 10,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8386),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(409),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -519,7 +522,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 11,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8387),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(410),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -531,7 +534,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 12,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8388),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(410),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -543,7 +546,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 13,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8389),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(411),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -555,7 +558,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 14,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8390),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(412),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -567,7 +570,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 15,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8390),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(412),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -579,7 +582,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 16,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8391),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(413),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -591,7 +594,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 17,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8392),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(414),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -603,7 +606,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 18,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8393),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(415),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -615,7 +618,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 19,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8394),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(416),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -627,7 +630,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 20,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8395),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(417),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -639,7 +642,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 21,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8395),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(417),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -651,7 +654,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 22,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8396),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(418),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -663,7 +666,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 23,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8397),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(419),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -675,7 +678,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 24,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8397),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(419),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -687,7 +690,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 25,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8398),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(420),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -699,7 +702,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 26,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8399),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(421),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -711,7 +714,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 27,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8400),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(421),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -723,7 +726,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 28,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8400),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(422),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -735,7 +738,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 29,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8401),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(423),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -747,7 +750,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 30,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8402),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(423),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -759,7 +762,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 31,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8402),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(424),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -771,7 +774,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 32,
                             CountryId = 6,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8403),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(424),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -783,7 +786,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 33,
                             CountryId = 6,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8404),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(425),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -795,7 +798,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 34,
                             CountryId = 6,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8405),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(427),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -807,7 +810,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 35,
                             CountryId = 6,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8406),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(427),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -819,7 +822,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 36,
                             CountryId = 7,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8407),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(429),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -831,7 +834,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 37,
                             CountryId = 7,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8409),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(429),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -843,7 +846,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 38,
                             CountryId = 7,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8409),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(430),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -855,7 +858,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 39,
                             CountryId = 7,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8410),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(431),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -867,7 +870,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 40,
                             CountryId = 8,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8411),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(432),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -879,7 +882,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 41,
                             CountryId = 8,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8411),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(432),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -891,7 +894,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 42,
                             CountryId = 8,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8412),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(433),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -903,7 +906,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 43,
                             CountryId = 8,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8413),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(433),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -915,7 +918,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 44,
                             CountryId = 9,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8414),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(434),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -927,7 +930,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 45,
                             CountryId = 9,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8414),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(435),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -939,7 +942,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 46,
                             CountryId = 9,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8415),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(435),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -951,7 +954,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 47,
                             CountryId = 9,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8416),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(436),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -963,7 +966,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 48,
                             CountryId = 10,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8416),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(437),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -975,7 +978,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 49,
                             CountryId = 10,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8417),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(437),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -987,7 +990,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 50,
                             CountryId = 10,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8418),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(438),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -999,7 +1002,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 51,
                             CountryId = 10,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8418),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(439),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1011,7 +1014,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 52,
                             CountryId = 11,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8419),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(439),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1023,7 +1026,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 53,
                             CountryId = 11,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8420),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(440),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1035,7 +1038,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 54,
                             CountryId = 11,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8420),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(441),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1047,7 +1050,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 55,
                             CountryId = 11,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8421),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(441),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1059,7 +1062,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 56,
                             CountryId = 12,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8422),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(442),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1071,7 +1074,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 57,
                             CountryId = 12,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8422),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(443),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1083,7 +1086,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 58,
                             CountryId = 12,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8423),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(443),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1095,7 +1098,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 59,
                             CountryId = 12,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8424),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(444),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1107,7 +1110,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 60,
                             CountryId = 13,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8424),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(444),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1119,7 +1122,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 61,
                             CountryId = 13,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8425),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(445),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1131,7 +1134,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 62,
                             CountryId = 13,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8426),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(446),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1143,7 +1146,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 63,
                             CountryId = 13,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8426),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(446),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1155,7 +1158,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 64,
                             CountryId = 14,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8427),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(447),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1167,7 +1170,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 65,
                             CountryId = 14,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8428),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(448),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1179,7 +1182,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 66,
                             CountryId = 14,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8429),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(503),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1191,7 +1194,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 67,
                             CountryId = 14,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8430),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(504),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1203,7 +1206,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 68,
                             CountryId = 15,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8431),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(505),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1215,7 +1218,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 69,
                             CountryId = 15,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8445),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(506),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1227,7 +1230,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 70,
                             CountryId = 15,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8446),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(507),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1239,7 +1242,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 71,
                             CountryId = 15,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8446),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(507),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1251,7 +1254,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 72,
                             CountryId = 16,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8447),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(508),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1263,7 +1266,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 73,
                             CountryId = 16,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8448),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(509),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1275,7 +1278,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 74,
                             CountryId = 16,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8449),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(509),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1287,7 +1290,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 75,
                             CountryId = 16,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8449),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(510),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1299,7 +1302,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 76,
                             CountryId = 17,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8450),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(511),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1311,7 +1314,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 77,
                             CountryId = 17,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8451),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(511),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1323,7 +1326,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 78,
                             CountryId = 17,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8452),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(512),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1335,7 +1338,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 79,
                             CountryId = 17,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8452),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(513),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1347,7 +1350,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 80,
                             CountryId = 18,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8453),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(513),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1359,7 +1362,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 81,
                             CountryId = 18,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8454),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(514),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1371,7 +1374,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 82,
                             CountryId = 18,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8454),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(515),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1383,7 +1386,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 83,
                             CountryId = 18,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8455),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(515),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1395,7 +1398,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 84,
                             CountryId = 19,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8456),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(516),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1407,7 +1410,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 85,
                             CountryId = 19,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8456),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(517),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1419,7 +1422,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 86,
                             CountryId = 19,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8457),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(517),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1431,7 +1434,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 87,
                             CountryId = 19,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8458),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(518),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1575,7 +1578,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 1,
                             CodePhone = "+54",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8595),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(645),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1587,7 +1590,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 2,
                             CodePhone = "+591",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8598),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(648),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1599,7 +1602,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 3,
                             CodePhone = "+55",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8600),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(649),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1611,7 +1614,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 4,
                             CodePhone = "+56",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8601),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(650),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1623,7 +1626,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 5,
                             CodePhone = "+57",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8602),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(651),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1635,7 +1638,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 6,
                             CodePhone = "+506",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8603),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(653),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1647,7 +1650,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 7,
                             CodePhone = "+53",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8604),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(653),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1659,7 +1662,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 8,
                             CodePhone = "+593",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8605),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(654),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1671,7 +1674,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 9,
                             CodePhone = "+503",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8606),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(655),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1683,7 +1686,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 10,
                             CodePhone = "+502",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8608),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(657),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1695,7 +1698,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 11,
                             CodePhone = "+504",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8608),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(657),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1707,7 +1710,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 12,
                             CodePhone = "+52",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8609),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(658),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1719,7 +1722,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 13,
                             CodePhone = "+505",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8610),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(659),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1731,7 +1734,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 14,
                             CodePhone = "+507",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8611),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(660),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1743,7 +1746,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 15,
                             CodePhone = "+595",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8612),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(661),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1755,7 +1758,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 16,
                             CodePhone = "+51",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8612),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(661),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1767,7 +1770,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 17,
                             CodePhone = "+1",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8613),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(662),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1779,7 +1782,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 18,
                             CodePhone = "+598",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8615),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(716),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1791,7 +1794,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 19,
                             CodePhone = "+58",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8725),
+                            CreateAt = new DateTime(2025, 6, 8, 21, 9, 51, 601, DateTimeKind.Utc).AddTicks(717),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1936,6 +1939,7 @@ namespace SanAndres_Api.Migrations
                         .HasColumnType("integer");
 
                     b.Property<int?>("CompanyId")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreateAt")
@@ -2258,7 +2262,9 @@ namespace SanAndres_Api.Migrations
                 {
                     b.HasOne("SanAndres_Api.Models.Company", "Company")
                         .WithMany("Sellers")
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SanAndres_Api.Models.User", "User")
                         .WithOne("Seller")
