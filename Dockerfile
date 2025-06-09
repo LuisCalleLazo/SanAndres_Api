@@ -14,4 +14,4 @@ COPY --from=build /out .
 
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "SanAndres_Api.dll"]
+ENTRYPOINT ["dotnet", "SanAndres_Api.dll", "--urls", "http://0.0.0.0:5000"]
