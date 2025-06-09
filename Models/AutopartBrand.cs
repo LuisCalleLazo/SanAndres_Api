@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using SanAndres_Api.Models.Templeates;
 
 namespace SanAndres_Api.Models
@@ -12,6 +13,7 @@ namespace SanAndres_Api.Models
     public string Name { get; set; }
     public string Logo { get; set; }
     
+    [JsonIgnore]
     public virtual ICollection<Autopart> Autoparts { get; set; }
   }
 }

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using SanAndres_Api.Models.Templeates;
 
 namespace SanAndres_Api.Models
@@ -16,6 +17,7 @@ namespace SanAndres_Api.Models
     public SaleState State { get; set; }
 
 
+    [JsonIgnore]
     public virtual ICollection<Sale> Sales { get; set; }
 
     public virtual Customer Customer { get; set; }

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using SanAndres_Api.Models.Templeates;
 
 namespace SanAndres_Api.Models
@@ -14,6 +15,7 @@ namespace SanAndres_Api.Models
     public int CountryId { get; set; }
 
     public virtual Country Country { get; set; }
+    [JsonIgnore]
     public virtual ICollection<UserInfo> UserInfos { get; set; }
   }
 }

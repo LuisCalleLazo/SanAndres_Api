@@ -26,7 +26,7 @@ namespace SanAndres_Api.Controllers
     }
 
     [HttpPost("of-seller")]
-    public async Task<IActionResult> Create([FromBody] AutopartOfSellerDto request)
+    public async Task<IActionResult> CreateOfSeller([FromBody] AutopartOfSellerDto request)
     {
       try
       {
@@ -45,6 +45,24 @@ namespace SanAndres_Api.Controllers
         await _repo.Create(autopart);
 
         return Ok(autopart);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] AutopartToCreateDto request)
+    {
+      try
+      {
+
+        var create = _mapper.Map<Autopart>(request);
+        await _repo.Create(create);
+        return Ok(create);
       }
       catch (Exception err)
       {
@@ -80,10 +98,32 @@ namespace SanAndres_Api.Controllers
         var list = await _repo.GetQueryable<Autopart>()
           .Include(x => x.AutopartAssets)
           .Include(x => x.AutopartInfos)
+              .ThenInclude(i => i.AutopartTypeInfo)
           .Include(x => x.AutopartBrand)
           .Include(x => x.Category)
+          .Select(x => new AutopartToListDto {
+              Id = x.Id,
+              Name = x.Name,
+              BrandId = x.AutopartBrand.Id,
+              BrandName = x.AutopartBrand.Name,
+              CategoryId = x.Category.Id,
+              CategoryName = x.Category.Name,
+              Infos = x.AutopartInfos.Select(info => new AutopartInfoDto {
+                  Id = info.Id,
+                  Value = info.Value,
+                  TypeId = info.TypeId,
+                  TypeName = info.AutopartTypeInfo.Name
+              }).ToList(),
+              Assets = x.AutopartAssets.Select(asset => new AutopartAssetDto {
+                  Id = asset.Id,
+                  Asset = asset.Asset,
+                  Description = asset.Description
+              }).ToList()
+          })
           .ToListAsync();
-        return Ok(list);
+
+      return Ok(list);
+
         
       }catch(Exception err)
       {

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using SanAndres_Api.Models.Templeates;
 
 namespace SanAndres_Api.Models
@@ -13,9 +14,13 @@ namespace SanAndres_Api.Models
     public int BrandId { get; set; }
     public int CategoryId { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<AutopartInfo> AutopartInfos { get; set; }
+    [JsonIgnore]
     public virtual ICollection<AutopartAsset> AutopartAssets { get; set; }
+    [JsonIgnore]
     public virtual ICollection<AutopartOfSeller> AutopartOfSellers { get; set; }
+    [JsonIgnore]
     public virtual ICollection<Sale> Sales { get; set; }
 
     public virtual AutopartBrand AutopartBrand { get; set; }
