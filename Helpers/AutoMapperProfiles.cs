@@ -16,6 +16,9 @@ namespace SanAndres_Api.Helpers
       CreateMap<AutopartOfSeller, AutopartOfSellerDto>();
       CreateMap<AutopartToCreateDto, Autopart>();
 
+      CreateMap<AutopartBrand, AutopartBrandToListDto>();
+      CreateMap<Category, AutopartCategoryToListDto>();
+
       CreateMap<AuthResponseDto, Token>()
       .ForMember(dest => dest.UserId, opt => opt.Ignore())
       .ForMember(dest => dest.User, opt => opt.Ignore());

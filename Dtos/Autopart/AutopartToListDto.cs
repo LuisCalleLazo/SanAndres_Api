@@ -29,4 +29,17 @@ namespace SanAndres_Api.Dtos
         public string Description { get; set; }
     }
 
+    public class AutopartBrandToListDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    public class AutopartCategoryToListDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+
 }

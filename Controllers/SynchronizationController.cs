@@ -24,23 +24,6 @@ namespace SanAndres_Api.Controllers
       _mapper = mapper;
     }
 
-
-
-    [HttpPost("brand")]
-    public async Task<IActionResult> SyncronizationBrand()
-    {
-      try
-      {
-        return Ok("asdasd");
-      }
-      catch (Exception err)
-      {
-        _logger.LogError(err.Message);
-        Console.WriteLine(err.StackTrace);
-        return BadRequest(err.Message);
-      }
-    }
-
     [HttpPost("autopart")]
     public async Task<IActionResult> SyncronizationAutopart()
     {
@@ -73,8 +56,6 @@ namespace SanAndres_Api.Controllers
         return BadRequest(err.Message);
       }
     }
-    
-
 
   }
 }
