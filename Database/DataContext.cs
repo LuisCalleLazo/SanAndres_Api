@@ -143,7 +143,7 @@ namespace SanAndres_Api.Database
         tb.HasOne(p => p.Customer)
           .WithMany(p => p.SaleDetails)
           .HasForeignKey(p => p.CustomerId)
-          .IsRequired();
+          .IsRequired(false);
 
         tb.HasOne(p => p.Seller)
           .WithMany(p => p.SaleDetails)
