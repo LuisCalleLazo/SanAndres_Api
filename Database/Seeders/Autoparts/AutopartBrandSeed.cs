@@ -80,7 +80,7 @@ namespace SanAndres_Api.Database.Seeders
         new AutopartBrand { Id = 72, Name = "Exide" , Logo = "" },
         new AutopartBrand { Id = 73, Name = "Interstate" , Logo = "" },
         new AutopartBrand { Id = 74, Name = "GPC" , Logo = "" },
-        new AutopartBrand { Id = 74, Name = "Tukisumi" , Logo = "" },
+        new AutopartBrand { Id = 75, Name = "Tukisumi" , Logo = "" },
       };
     }
 }

@@ -9,5 +9,7 @@ namespace SanAndres_Api.Dtos
         public int AmountUnitPublic { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal UnitPricePublic { get; set; }
+        public decimal WholessalePrice { get; set; }
+        public decimal WholessalePricePublic { get; set; }
     }
 }

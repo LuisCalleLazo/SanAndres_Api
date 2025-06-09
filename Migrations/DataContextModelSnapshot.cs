@@ -76,6 +76,9 @@ namespace SanAndres_Api.Migrations
                     b.Property<int>("DeleteUserId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -168,6 +171,908 @@ namespace SanAndres_Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("autopart_brand");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6221),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Yoitoki",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6233),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Perfect",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6236),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Nissan",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6240),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Bosch",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6243),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Denso",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6249),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Hibari",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6251),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Koyo",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6254),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "KYB",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6257),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "MAHLE",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6261),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Mando",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6264),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "NPC",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6266),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "PHC",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6268),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "RIK",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6270),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "SACHS",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6272),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "SCHAEFFLER",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6275),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Shibumi",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6277),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Toto Pistons",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6283),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "YUASA",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6285),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "GMB",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6287),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "OSK",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6290),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "PHILIPS",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6292),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "SKF",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6295),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "TBK",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6297),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "OIL PUMP",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6300),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Wolf",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6302),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Mitsubishi",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6305),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Aisin",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6307),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Mann-Filter",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6310),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Wix",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6312),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Fram",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6315),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "NGK",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6317),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Hitachi",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6319),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "TRW",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 34,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6324),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Valeo",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 35,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6326),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Delphi",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 36,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6328),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Mevotech",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 37,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6331),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Corteco",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 38,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6333),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Timken",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 39,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6335),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "ZF",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 40,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6337),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Federal Mogul",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 41,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6340),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Gates",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 42,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6342),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Bando",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 43,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6344),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Dayco",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 44,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6346),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Pirelli",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 45,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6348),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Firestone",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 46,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6351),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Bridgestone",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 47,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6353),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Goodyear",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 48,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6355),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Yokohama",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 49,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6358),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Maxxis",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 50,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6360),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Toyo",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 51,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6362),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Falken",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 52,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6364),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Avon",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 53,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6367),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Kenda",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 54,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6369),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Michelin",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 55,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6372),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Continental",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 56,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6374),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "BKT",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 57,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6458),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Trelleborg",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 58,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6462),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Uniroyal",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 59,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6464),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Kumho",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 60,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6466),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Hankook",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 61,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6469),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Cooper",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 62,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6472),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Nitto",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 63,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6474),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Wabco",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 64,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6476),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Haldex",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 65,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6479),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Spicer",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 66,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6484),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "VDO",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 67,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6487),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Mann",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 68,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6489),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Lucas",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 69,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6491),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Sylvania",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 70,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6493),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Behr",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 71,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6495),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Optima",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 72,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6497),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Exide",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 73,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6525),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Interstate",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 74,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6527),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "GPC",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 75,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 877, DateTimeKind.Utc).AddTicks(6530),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Logo = "",
+                            Name = "Tukisumi",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        });
                 });
 
             modelBuilder.Entity("SanAndres_Api.Models.AutopartInfo", b =>
@@ -311,6 +1216,176 @@ namespace SanAndres_Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("autopart_type_info");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5104),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Código general",
+                            TypeValue = 0,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5114),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Código alternativo",
+                            TypeValue = 0,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5118),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Código de fabricante",
+                            TypeValue = 0,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5120),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Medidas (dimensiones)",
+                            TypeValue = 1,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5384),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Peso",
+                            TypeValue = 1,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5390),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Diámetro",
+                            TypeValue = 1,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5392),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Longitud",
+                            TypeValue = 1,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5394),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Contenido del paquete",
+                            TypeValue = 2,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5397),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Material",
+                            TypeValue = 2,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5401),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Color",
+                            TypeValue = 2,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5403),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Cantidad de piezas",
+                            TypeValue = 2,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5406),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Torque",
+                            TypeValue = 1,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5408),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Voltaje",
+                            TypeValue = 1,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 879, DateTimeKind.Utc).AddTicks(5410),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "Amperaje",
+                            TypeValue = 1,
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        });
                 });
 
             modelBuilder.Entity("SanAndres_Api.Models.Category", b =>
@@ -351,6 +1426,162 @@ namespace SanAndres_Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("category");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3555),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "JUNTAS",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3575),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "AMORTIGUADORES",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3584),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "FRENOS",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3591),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "SUSPENSIÓN",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3596),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "MOTOR",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3614),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "TRANSMISIÓN",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3621),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "ELECTRICIDAD",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3627),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "ESCAPE",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3633),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "FILTROS",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3646),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "LUCES",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3651),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "BATERÍAS",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3657),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "NEUMÁTICOS",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3662),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "CARROCERÍA",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 876, DateTimeKind.Utc).AddTicks(3668),
+                            CreateUserId = 0,
+                            DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeleteUserId = 0,
+                            Name = "ACCESORIOS",
+                            UpdateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdateUserId = 0
+                        });
                 });
 
             modelBuilder.Entity("SanAndres_Api.Models.City", b =>
@@ -399,7 +1630,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 1,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8347),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9596),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -411,7 +1642,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 2,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8352),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9607),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -423,7 +1654,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 3,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8353),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9610),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -435,7 +1666,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 4,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8354),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9612),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -447,7 +1678,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 5,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8381),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9614),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -459,7 +1690,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 6,
                             CountryId = 1,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8383),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9620),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -471,7 +1702,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 7,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8383),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9622),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -483,7 +1714,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 8,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8384),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9625),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -495,7 +1726,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 9,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8385),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9627),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -507,7 +1738,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 10,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8386),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9632),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -519,7 +1750,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 11,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8387),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9634),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -531,7 +1762,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 12,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8388),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9637),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -543,7 +1774,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 13,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8389),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9639),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -555,7 +1786,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 14,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8390),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9641),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -567,7 +1798,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 15,
                             CountryId = 2,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8390),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9643),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -579,7 +1810,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 16,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8391),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9645),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -591,7 +1822,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 17,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8392),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9647),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -603,7 +1834,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 18,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8393),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9652),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -615,7 +1846,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 19,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8394),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9655),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -627,7 +1858,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 20,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8395),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9657),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -639,7 +1870,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 21,
                             CountryId = 3,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8395),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9659),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -651,7 +1882,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 22,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8396),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9661),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -663,7 +1894,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 23,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8397),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9663),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -675,7 +1906,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 24,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8397),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9665),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -687,7 +1918,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 25,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8398),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9667),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -699,7 +1930,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 26,
                             CountryId = 4,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8399),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9669),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -711,7 +1942,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 27,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8400),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9671),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -723,7 +1954,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 28,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8400),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9673),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -735,7 +1966,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 29,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8401),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9675),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -747,7 +1978,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 30,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8402),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9677),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -759,7 +1990,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 31,
                             CountryId = 5,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8402),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9679),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -771,7 +2002,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 32,
                             CountryId = 6,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8403),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9681),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -783,7 +2014,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 33,
                             CountryId = 6,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8404),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9683),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -795,7 +2026,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 34,
                             CountryId = 6,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8405),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9688),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -807,7 +2038,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 35,
                             CountryId = 6,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8406),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9690),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -819,7 +2050,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 36,
                             CountryId = 7,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8407),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9692),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -831,7 +2062,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 37,
                             CountryId = 7,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8409),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9696),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -843,7 +2074,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 38,
                             CountryId = 7,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8409),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9698),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -855,7 +2086,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 39,
                             CountryId = 7,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8410),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9700),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -867,7 +2098,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 40,
                             CountryId = 8,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8411),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9702),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -879,7 +2110,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 41,
                             CountryId = 8,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8411),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9704),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -891,7 +2122,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 42,
                             CountryId = 8,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8412),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9707),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -903,7 +2134,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 43,
                             CountryId = 8,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8413),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9709),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -915,7 +2146,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 44,
                             CountryId = 9,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8414),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9711),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -927,7 +2158,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 45,
                             CountryId = 9,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8414),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9713),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -939,7 +2170,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 46,
                             CountryId = 9,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8415),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9715),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -951,7 +2182,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 47,
                             CountryId = 9,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8416),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9718),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -963,7 +2194,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 48,
                             CountryId = 10,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8416),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9720),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -975,7 +2206,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 49,
                             CountryId = 10,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8417),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9722),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -987,7 +2218,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 50,
                             CountryId = 10,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8418),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9724),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -999,7 +2230,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 51,
                             CountryId = 10,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8418),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9726),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1011,7 +2242,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 52,
                             CountryId = 11,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8419),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9728),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1023,7 +2254,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 53,
                             CountryId = 11,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8420),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9730),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1035,7 +2266,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 54,
                             CountryId = 11,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8420),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9732),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1047,7 +2278,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 55,
                             CountryId = 11,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8421),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9734),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1059,7 +2290,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 56,
                             CountryId = 12,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8422),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9736),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1071,7 +2302,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 57,
                             CountryId = 12,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8422),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9738),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1083,7 +2314,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 58,
                             CountryId = 12,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8423),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9740),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1095,7 +2326,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 59,
                             CountryId = 12,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8424),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9742),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1107,7 +2338,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 60,
                             CountryId = 13,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8424),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9744),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1119,7 +2350,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 61,
                             CountryId = 13,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8425),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9746),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1131,7 +2362,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 62,
                             CountryId = 13,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8426),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9748),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1143,7 +2374,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 63,
                             CountryId = 13,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8426),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9750),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1155,7 +2386,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 64,
                             CountryId = 14,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8427),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9752),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1167,7 +2398,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 65,
                             CountryId = 14,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8428),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9754),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1179,7 +2410,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 66,
                             CountryId = 14,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8429),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9882),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1191,7 +2422,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 67,
                             CountryId = 14,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8430),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9884),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1203,7 +2434,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 68,
                             CountryId = 15,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8431),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9887),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1215,7 +2446,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 69,
                             CountryId = 15,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8445),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9889),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1227,7 +2458,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 70,
                             CountryId = 15,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8446),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9891),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1239,7 +2470,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 71,
                             CountryId = 15,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8446),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9893),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1251,7 +2482,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 72,
                             CountryId = 16,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8447),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9895),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1263,7 +2494,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 73,
                             CountryId = 16,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8448),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9898),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1275,7 +2506,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 74,
                             CountryId = 16,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8449),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9900),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1287,7 +2518,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 75,
                             CountryId = 16,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8449),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9902),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1299,7 +2530,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 76,
                             CountryId = 17,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8450),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9904),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1311,7 +2542,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 77,
                             CountryId = 17,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8451),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9906),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1323,7 +2554,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 78,
                             CountryId = 17,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8452),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9908),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1335,7 +2566,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 79,
                             CountryId = 17,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8452),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9910),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1347,7 +2578,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 80,
                             CountryId = 18,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8453),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9912),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1359,7 +2590,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 81,
                             CountryId = 18,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8454),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9914),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1371,7 +2602,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 82,
                             CountryId = 18,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8454),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9916),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1383,7 +2614,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 83,
                             CountryId = 18,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8455),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9918),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1395,7 +2626,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 84,
                             CountryId = 19,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8456),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9920),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1407,7 +2638,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 85,
                             CountryId = 19,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8456),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9922),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1419,7 +2650,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 86,
                             CountryId = 19,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8457),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9924),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1431,7 +2662,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 87,
                             CountryId = 19,
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8458),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 874, DateTimeKind.Utc).AddTicks(9926),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1575,7 +2806,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 1,
                             CodePhone = "+54",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8595),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(445),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1587,7 +2818,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 2,
                             CodePhone = "+591",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8598),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(455),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1599,7 +2830,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 3,
                             CodePhone = "+55",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8600),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(459),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1611,7 +2842,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 4,
                             CodePhone = "+56",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8601),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(461),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1623,7 +2854,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 5,
                             CodePhone = "+57",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8602),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(464),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1635,7 +2866,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 6,
                             CodePhone = "+506",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8603),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(469),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1647,7 +2878,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 7,
                             CodePhone = "+53",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8604),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(471),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1659,7 +2890,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 8,
                             CodePhone = "+593",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8605),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(474),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1671,7 +2902,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 9,
                             CodePhone = "+503",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8606),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(476),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1683,7 +2914,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 10,
                             CodePhone = "+502",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8608),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(481),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1695,7 +2926,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 11,
                             CodePhone = "+504",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8608),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(483),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1707,7 +2938,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 12,
                             CodePhone = "+52",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8609),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(485),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1719,7 +2950,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 13,
                             CodePhone = "+505",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8610),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(488),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1731,7 +2962,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 14,
                             CodePhone = "+507",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8611),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(490),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1743,7 +2974,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 15,
                             CodePhone = "+595",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8612),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(492),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1755,7 +2986,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 16,
                             CodePhone = "+51",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8612),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(495),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1767,7 +2998,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 17,
                             CodePhone = "+1",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8613),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(497),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1779,7 +3010,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 18,
                             CodePhone = "+598",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8615),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(567),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,
@@ -1791,7 +3022,7 @@ namespace SanAndres_Api.Migrations
                         {
                             Id = 19,
                             CodePhone = "+58",
-                            CreateAt = new DateTime(2025, 6, 8, 21, 23, 4, 209, DateTimeKind.Utc).AddTicks(8725),
+                            CreateAt = new DateTime(2025, 6, 9, 12, 6, 55, 875, DateTimeKind.Utc).AddTicks(571),
                             CreateUserId = 0,
                             DeleteAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeleteUserId = 0,

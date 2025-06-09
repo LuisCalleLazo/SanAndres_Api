@@ -153,7 +153,7 @@ namespace SanAndres_Api.Database
 
       modelBuilder.Entity<Category>(tb => {
         tb.HasKey(p => p.Id);
-
+        tb.HasData(AutopartsCategorySeed.GetSeed());
       });
 
 
@@ -178,12 +178,12 @@ namespace SanAndres_Api.Database
           .WithMany(p => p.AutopartAssets)
           .HasForeignKey(p => p.AutopartId)
           .IsRequired();
-
+        
       });
 
       modelBuilder.Entity<AutopartBrand>(tb => {
         tb.HasKey(p => p.Id);
-
+        tb.HasData(AutopartsBrandSeed.GetSeed());
       });
 
       modelBuilder.Entity<AutopartInfo>(tb => {
@@ -216,7 +216,7 @@ namespace SanAndres_Api.Database
 
       modelBuilder.Entity<AutopartTypeInfo>(tb => {
         tb.HasKey(p => p.Id);
-
+        tb.HasData(AutopartsTypeInfoSeed.GetSeed());
       });
 
       modelBuilder.Entity<Token>(tb => {
