@@ -2,6 +2,7 @@ using SanAndres_Api.Repositories;
 using SanAndres_Api.Repositories.Interfaces;
 using SanAndres_Api.Services;
 using SanAndres_Api.Services.Interfaces;
+using usr_service.Services;
 
 namespace SanAndres_Api.Config
 {
@@ -18,6 +19,7 @@ namespace SanAndres_Api.Config
     {
       services.AddScoped<IAuthService, AuthService>();
       services.AddScoped<IUserService, UserService>();
+      services.AddScoped<ICloudinaryService, CloudinaryService>();
     }
   }
 }

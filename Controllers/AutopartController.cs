@@ -15,14 +15,16 @@ namespace SanAndres_Api.Controllers
   {
     private readonly ILogger<AutopartController> _logger;
     private readonly IUserService _userServ;
+    private readonly ICloudinaryService _cloudinary;
     private readonly ITRepository _repo;
     private readonly IMapper _mapper;
-    public AutopartController(ILogger<AutopartController> logger, IUserService userServ, ITRepository repo, IMapper mapper)
+    public AutopartController(ILogger<AutopartController> logger, IUserService userServ, ITRepository repo, IMapper mapper, ICloudinaryService cloudinary)
     {
       _logger = logger;
       _userServ = userServ;
       _repo = repo;
       _mapper = mapper;
+      _cloudinary = cloudinary;
     }
 
     [HttpPost]
@@ -129,6 +131,74 @@ namespace SanAndres_Api.Controllers
     }
 
 
+    [HttpPost("info")]
+    public async Task<IActionResult> CreateInfo([FromBody] AutopartInfoToCreate create)
+    {
+      try
+      {
+        var newInfo = _mapper.Map<AutopartInfo>(create);
+        await _repo.Create(newInfo);
+        return Ok(newInfo);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+    [HttpDelete("info/{id}")]
+    public async Task<IActionResult> DeleteInfo(int id)
+    {
+      try
+      {
+        var info = await _repo.GetById<AutopartInfo>(id);
+        await _repo.Remove(info);
+        return Ok("Eliminado correctamente!");
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+    [HttpPost("asset")]
+    public async Task<IActionResult> CreateAsset([FromForm] AutopartAssetToCreate create)
+    {
+      try
+      {
+        string path_asset = _cloudinary.UploadFile(create.Asset, $"SanAndres/Assets");
+        var newAsset = _mapper.Map<AutopartAsset>(create);
+        newAsset.Asset = path_asset;
+        await _repo.Create(newAsset);
+        return Ok(newAsset);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+    [HttpDelete("asset/{id}")]
+    public async Task<IActionResult> DeleteAsset(int id)
+    {
+      try
+      {
+        var asset = await _repo.GetById<AutopartAsset>(id);
+        await _repo.Remove(asset);
+        return Ok("Eliminado correctamente!");
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
 
     [HttpPost("of-seller")]
     public async Task<IActionResult> CreateOfSeller([FromBody] AutopartOfSellerDto request)
