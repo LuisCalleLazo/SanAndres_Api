@@ -14,14 +14,12 @@ namespace SanAndres_Api.Controllers
   public class AutopartController : ControllerBase
   {
     private readonly ILogger<AutopartController> _logger;
-    private readonly IUserService _userServ;
     private readonly ICloudinaryService _cloudinary;
     private readonly ITRepository _repo;
     private readonly IMapper _mapper;
-    public AutopartController(ILogger<AutopartController> logger, IUserService userServ, ITRepository repo, IMapper mapper, ICloudinaryService cloudinary)
+    public AutopartController(ILogger<AutopartController> logger, ITRepository repo, IMapper mapper, ICloudinaryService cloudinary)
     {
       _logger = logger;
-      _userServ = userServ;
       _repo = repo;
       _mapper = mapper;
       _cloudinary = cloudinary;

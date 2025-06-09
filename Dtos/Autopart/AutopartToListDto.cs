@@ -13,6 +13,12 @@ namespace SanAndres_Api.Dtos
         public List<AutopartInfoDto> Infos { get; set; }
         public List<AutopartAssetDto> Assets { get; set; }
     }
+
+    public class AutopartDetailDto : AutopartToListDto
+    {
+        public decimal UnitPrice { get; set; }
+        public int SellerId { get; set; }
+    }
     public class AutopartInfoDto
     {
         public int Id { get; set; }

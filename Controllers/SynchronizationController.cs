@@ -13,18 +13,16 @@ namespace SanAndres_Api.Controllers
   public class SyncronizationController : ControllerBase
   {
     private readonly ILogger<SyncronizationController> _logger;
-    private readonly IUserService _userServ;
     private readonly ITRepository _repo;
     private readonly IMapper _mapper;
-    public SyncronizationController(ILogger<SyncronizationController> logger, IUserService userServ, ITRepository repo, IMapper mapper)
+    public SyncronizationController(ILogger<SyncronizationController> logger, ITRepository repo, IMapper mapper)
     {
       _logger = logger;
-      _userServ = userServ;
       _repo = repo;
       _mapper = mapper;
     }
 
-    [HttpPost("autopart")]
+    [HttpPost("autoparts")]
     public async Task<IActionResult> SyncronizationAutopart()
     {
       try
@@ -41,8 +39,24 @@ namespace SanAndres_Api.Controllers
     }
 
 
-    [HttpPost("sale")]
+    [HttpPost("sales")]
     public async Task<IActionResult> SyncronizationSale()
+    {
+      try
+      {
+
+        return Ok("asdasd");
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+    [HttpPost("customers")]
+    public async Task<IActionResult> SyncronizationCustomers()
     {
       try
       {
