@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SanAndres_Api.Dtos;
 using SanAndres_Api.Models;
 using SanAndres_Api.Repositories.Interfaces;
@@ -21,13 +22,44 @@ namespace SanAndres_Api.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("list")]
-        public async Task<IActionResult> GetSales()
+        [HttpGet("list/{sellerId}")]
+        public async Task<IActionResult> GetSales(int sellerId)
         {
             try
             {
 
-                return Ok("list");
+                // Obtener todas las ventas con sus relaciones
+                var saleDetails = await _repo.GetQueryable<SaleDetail>()
+                    .Include(sd => sd.Sales)
+                        .ThenInclude(s => s.Autopart)
+                            .ThenInclude(a => a.AutopartAssets)
+                    .Include(sd => sd.Customer)
+                    .Include(sd => sd.Seller)
+                    .Where(x => x.Seller.Id == sellerId)
+                    .ToListAsync();
+
+                // Mapear a DTO
+                var result = saleDetails.Select(sd => new SaleDetailToListDto
+                {
+                    Id = sd.Id,
+                    CustomerId = sd.CustomerId,
+                    CustomerNotSubscribed = sd.CustomerNotSubscribed,
+                    SellerId = sd.SellerId,
+                    SaleDate = sd.SaleDate,
+                    State = sd.State,
+                    Items = sd.Sales?.Select(s => new SaleToListDto
+                    {
+                        Id = s.Id,
+                        AutopartName = s.Autopart?.Name,
+                        AutopartAsset = s.Autopart?.AutopartAssets?.FirstOrDefault()?.Asset, // Tomamos el primer asset
+                        SaleDetailId = s.SaleDetailId,
+                        Amount = s.Amount,
+                        UnitPrice = s.UnitPrice,
+                        WholessalePrice = s.WholessalePrice
+                    }).ToList()
+                }).ToList();
+
+                return Ok(result);
             }
             catch (Exception err)
             {
