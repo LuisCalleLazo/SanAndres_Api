@@ -8,7 +8,7 @@ namespace Billing.Infrastructure.Config
   {
     public static void ConfigureContext(this IServiceCollection services, WebApplicationBuilder builder)
     {
-      var connectionString = builder.Configuration.GetConnectionString("AutoJapDb");
+      var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
       services.AddDbContext<DataContext>(options =>
       {
         options.UseNpgsql(connectionString, sqlOptions =>
