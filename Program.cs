@@ -9,10 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("CloudinarySettings"));
 
 // Config Network
-// builder.WebHost.ConfigureKestrel(serverOptions =>
-// {
-//   serverOptions.Listen(System.Net.IPAddress.Any, 5000);  // HTTP
-// });
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+  serverOptions.Listen(System.Net.IPAddress.Any, 5000);  // HTTP
+});
 
 // Controllers
 builder.Services.AddControllers();
@@ -53,8 +53,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);

@@ -10,7 +10,6 @@ namespace SanAndres_Api.Security
 {
   public class JwtSecurity
   {
-
     public static string GenerateToken(
       JwtSettings jwt, UserResponseDto user, bool isSeller, bool isCustomer)
     {
