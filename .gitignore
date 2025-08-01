@@ -21,3 +21,5 @@ LICENSE.txt
 *.csv
 ./vscode
 .env
+
+drive_client.json

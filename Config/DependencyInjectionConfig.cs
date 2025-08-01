@@ -20,6 +20,8 @@ namespace SanAndres_Api.Config
       services.AddScoped<IAuthService, AuthService>();
       services.AddScoped<IUserService, UserService>();
       services.AddScoped<ICloudinaryService, CloudinaryService>();
+      services.AddScoped<IDriveDevService, DriveDevService>();
+      services.AddScoped<ISearchAutopartService, SearchAutopartService>();
     }
   }
 }
