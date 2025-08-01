@@ -13,8 +13,7 @@ namespace SanAndres_Api.Models
     public int SaleDetailId { get; set; }
 
     public int Amount { get; set; }
-    public decimal UnitPrice { get; set; }
-    public decimal WholessalePrice { get; set; }
+    public decimal Price { get; set; }
 
     public virtual Autopart Autopart { get; set; }
     public virtual SaleDetail SaleDetail { get; set; }

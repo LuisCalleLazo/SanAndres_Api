@@ -22,6 +22,7 @@ namespace SanAndres_Api.Config
       services.AddScoped<ICloudinaryService, CloudinaryService>();
       services.AddScoped<IDriveDevService, DriveDevService>();
       services.AddScoped<ISearchAutopartService, SearchAutopartService>();
+      services.AddScoped<ISaleService, SaleService>();
     }
   }
 }

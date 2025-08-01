@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using SanAndres_Api.Dtos;
 using SanAndres_Api.Models;
 using SanAndres_Api.Repositories.Interfaces;
+using SanAndres_Api.Services.Interfaces;
 
 namespace SanAndres_Api.Controllers
 {
@@ -12,14 +13,12 @@ namespace SanAndres_Api.Controllers
     public class SaleController : ControllerBase
     {
         private readonly ILogger<SaleController> _logger;
-        private readonly ITRepository _repo;
-        private readonly IMapper _mapper;
+        private readonly ISaleService _service;
 
-        public SaleController(ILogger<SaleController> logger, ITRepository repo, IMapper mapper)
+        public SaleController(ILogger<SaleController> logger, ISaleService service)
         {
             _logger = logger;
-            _repo = repo;
-            _mapper = mapper;
+            _service = service;
         }
 
         [HttpGet("list/{sellerId}")]
@@ -27,38 +26,22 @@ namespace SanAndres_Api.Controllers
         {
             try
             {
-
-                // Obtener todas las ventas con sus relaciones
-                var saleDetails = await _repo.GetQueryable<SaleDetail>()
-                    .Include(sd => sd.Sales)
-                        .ThenInclude(s => s.Autopart)
-                            .ThenInclude(a => a.AutopartAssets)
-                    .Include(sd => sd.Customer)
-                    .Include(sd => sd.Seller)
-                    .Where(x => x.Seller.Id == sellerId)
-                    .ToListAsync();
-
-                // Mapear a DTO
-                var result = saleDetails.Select(sd => new SaleDetailToListDto
-                {
-                    Id = sd.Id,
-                    CustomerId = sd.CustomerId,
-                    CustomerNotSubscribed = sd.CustomerNotSubscribed,
-                    SellerId = sd.SellerId,
-                    SaleDate = sd.SaleDate,
-                    State = sd.State,
-                    Items = sd.Sales?.Select(s => new SaleToListDto
-                    {
-                        Id = s.Id,
-                        AutopartName = s.Autopart?.Name,
-                        AutopartAsset = s.Autopart?.AutopartAssets?.FirstOrDefault()?.Asset, // Tomamos el primer asset
-                        SaleDetailId = s.SaleDetailId,
-                        Amount = s.Amount,
-                        UnitPrice = s.UnitPrice,
-                        WholessalePrice = s.WholessalePrice
-                    }).ToList()
-                }).ToList();
-
+                var result = await _service.GetList(sellerId);
+                return Ok(result);
+            }
+            catch (Exception err)
+            {
+                _logger.LogError(err.Message);
+                Console.WriteLine(err.StackTrace);
+                return BadRequest(err.Message);
+            }
+        }
+        [HttpGet("list/item/{saleDetailId}")]
+        public async Task<IActionResult> GetSalesItems(int saleDetailId)
+        {
+            try
+            {
+                var result = await _service.GetSaleItems(saleDetailId);
                 return Ok(result);
             }
             catch (Exception err)
@@ -70,31 +53,12 @@ namespace SanAndres_Api.Controllers
         }
 
         [HttpPost]
-
         public async Task<IActionResult> CreateSale([FromBody] SaleDetailToCreateDto createDto)
         {
             try
             {
-                var saleDetail = _mapper.Map<SaleDetail>(createDto);
-                
-                if (createDto.SaleDate == default)
-                {
-                    saleDetail.SaleDate = DateTime.Now;
-                }
-                
-                // Mapear cada SaleToCreateDto a Sale y asignar la relación
-                saleDetail.Sales = _mapper.Map<List<Sale>>(createDto.Items);
-                
-                // Asignar el SaleDetailId a cada Sale (esto se puede hacer automáticamente con EF Core)
-                foreach (var sale in saleDetail.Sales)
-                {
-                    sale.SaleDetail = saleDetail;
-                }
-
-                // Guardar en la base de datos
-                await _repo.Create(saleDetail);
-                
-                return Ok("Venta guardada!");
+                await _service.CreateSale(createDto);
+                return NoContent();
             }
             catch (Exception err)
             {
@@ -103,6 +67,85 @@ namespace SanAndres_Api.Controllers
                 return BadRequest(err.Message);
             }
         }
-    
+
+        [HttpPost("item")]
+        public async Task<IActionResult> CreateSaleItem([FromBody] SaleToAddDto createDto)
+        {
+            try
+            {
+                var create = await _service.CreateSaleItem(createDto);
+                return Ok(create);
+            }
+            catch (Exception err)
+            {
+                _logger.LogError(err.Message);
+                Console.WriteLine(err.StackTrace);
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdateSale(int id, [FromBody] SaleDetailToUpdateDto updateDto)
+        {
+            try
+            {
+                await _service.UpdateSale(updateDto, id);
+                return NoContent();
+            }
+            catch (Exception err)
+            {
+                _logger.LogError(err.Message);
+                Console.WriteLine(err.StackTrace);
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpPatch("item/{id}")]
+        public async Task<IActionResult> UpdateSaleItem(int id, [FromBody] SaleToUpdateDto updateDto)
+        {
+            try
+            {
+                await _service.UpdateSaleItem(updateDto, id);
+                return NoContent();
+            }
+            catch (Exception err)
+            {
+                _logger.LogError(err.Message);
+                Console.WriteLine(err.StackTrace);
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSale(int id)
+        {
+            try
+            {
+                await _service.DeleteSale(id);
+                return NoContent();
+            }
+            catch (Exception err)
+            {
+                _logger.LogError(err.Message);
+                Console.WriteLine(err.StackTrace);
+                return BadRequest(err.Message);
+            }
+        }
+        
+        [HttpDelete("item/{id}")]
+        public async Task<IActionResult> DeleteSaleItem(int id)
+        {
+            try
+            {
+                await _service.DeleteSaleItem(id);
+                return NoContent();
+            }
+            catch (Exception err)
+            {
+                _logger.LogError(err.Message);
+                Console.WriteLine(err.StackTrace);
+                return BadRequest(err.Message);
+            }
+        }
     }
 }

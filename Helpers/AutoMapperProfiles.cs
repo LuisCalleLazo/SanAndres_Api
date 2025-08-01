@@ -25,6 +25,8 @@ namespace SanAndres_Api.Helpers
       CreateMap<SaleDetailToCreateDto, SaleDetail>()
           .ForMember(dest => dest.Sales, opt => opt.Ignore());      
       CreateMap<SaleToCreateDto, Sale>();
+      CreateMap<SaleToAddDto, Sale>();
+      CreateMap<Sale, SaleDto>();
 
       CreateMap<AuthResponseDto, Token>()
       .ForMember(dest => dest.UserId, opt => opt.Ignore())
