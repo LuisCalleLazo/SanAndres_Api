@@ -16,6 +16,8 @@ namespace SanAndres_Api.Models
     public virtual ICollection<AutopartOfSeller> AutopartOfSellers { get; set; }
     [JsonIgnore]
     public virtual ICollection<SaleDetail> SaleDetails { get; set; }
+    [JsonIgnore]
+    public virtual ICollection<CustomerOfSeller> CustomerOfSellers { get; set; }
     public virtual User User { get; set; }
     public virtual Company Company { get; set; }
   }
