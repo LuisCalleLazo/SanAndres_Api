@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SanAndres_Api.Dtos;
@@ -8,6 +9,7 @@ using SanAndres_Api.Services.Interfaces;
 
 namespace SanAndres_Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/sales")]
     [ApiController]
     public class SaleController : ControllerBase
@@ -21,12 +23,18 @@ namespace SanAndres_Api.Controllers
             _service = service;
         }
 
-        [HttpGet("list/{sellerId}")]
-        public async Task<IActionResult> GetSales(int sellerId)
+        [HttpGet("list")]
+        public async Task<IActionResult> GetSales()
         {
             try
             {
-                var result = await _service.GetList(sellerId);
+                var userId = Int32.Parse(User.FindFirst("id")?.Value);
+                var seller = User.FindFirst("seller")?.Value;
+
+                if (seller != "True")
+                    return Unauthorized("Usuario no autorizado");
+
+                var result = await _service.GetList(userId);
                 return Ok(result);
             }
             catch (Exception err)
@@ -36,11 +44,17 @@ namespace SanAndres_Api.Controllers
                 return BadRequest(err.Message);
             }
         }
+
         [HttpGet("list/item/{saleDetailId}")]
         public async Task<IActionResult> GetSalesItems(int saleDetailId)
         {
             try
             {
+                var seller = User.FindFirst("seller")?.Value;
+
+                if (seller != "True")
+                    return Unauthorized("Usuario no autorizado");
+
                 var result = await _service.GetSaleItems(saleDetailId);
                 return Ok(result);
             }
@@ -57,6 +71,11 @@ namespace SanAndres_Api.Controllers
         {
             try
             {
+                var seller = User.FindFirst("seller")?.Value;
+
+                if (seller != "True")
+                    return Unauthorized("Usuario no autorizado");
+
                 await _service.CreateSale(createDto);
                 return NoContent();
             }
@@ -73,6 +92,11 @@ namespace SanAndres_Api.Controllers
         {
             try
             {
+                var seller = User.FindFirst("seller")?.Value;
+
+                if (seller != "True")
+                    return Unauthorized("Usuario no autorizado");
+
                 var create = await _service.CreateSaleItem(createDto);
                 return Ok(create);
             }
@@ -89,6 +113,11 @@ namespace SanAndres_Api.Controllers
         {
             try
             {
+                var seller = User.FindFirst("seller")?.Value;
+
+                if (seller != "True")
+                    return Unauthorized("Usuario no autorizado");
+
                 await _service.UpdateSale(updateDto, id);
                 return NoContent();
             }
@@ -105,6 +134,12 @@ namespace SanAndres_Api.Controllers
         {
             try
             {
+
+                var seller = User.FindFirst("seller")?.Value;
+
+                if (seller != "True")
+                    return Unauthorized("Usuario no autorizado");
+
                 await _service.UpdateSaleItem(updateDto, id);
                 return NoContent();
             }
@@ -121,6 +156,12 @@ namespace SanAndres_Api.Controllers
         {
             try
             {
+
+                var seller = User.FindFirst("seller")?.Value;
+
+                if (seller != "True")
+                    return Unauthorized("Usuario no autorizado");
+
                 await _service.DeleteSale(id);
                 return NoContent();
             }
@@ -131,12 +172,17 @@ namespace SanAndres_Api.Controllers
                 return BadRequest(err.Message);
             }
         }
-        
+
         [HttpDelete("item/{id}")]
         public async Task<IActionResult> DeleteSaleItem(int id)
         {
             try
             {
+                var seller = User.FindFirst("seller")?.Value;
+
+                if (seller != "True")
+                    return Unauthorized("Usuario no autorizado");
+
                 await _service.DeleteSaleItem(id);
                 return NoContent();
             }
