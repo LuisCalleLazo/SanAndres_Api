@@ -14,15 +14,13 @@ namespace SanAndres_Api.Controllers
   public class AutopartController : ControllerBase
   {
     private readonly ILogger<AutopartController> _logger;
-    private readonly ICloudinaryService _cloudinary;
-    private readonly ITRepository _repo;
-    private readonly IMapper _mapper;
-    public AutopartController(ILogger<AutopartController> logger, ITRepository repo, IMapper mapper, ICloudinaryService cloudinary)
+    private readonly IAutopartService _service;
+    private readonly IAutopartDataService _dataServ;
+    public AutopartController(ILogger<AutopartController> logger, IAutopartService service, IAutopartDataService dataServ)
     {
       _logger = logger;
-      _repo = repo;
-      _mapper = mapper;
-      _cloudinary = cloudinary;
+      _service = service;
+      _dataServ = dataServ;
     }
 
     [HttpPost]
@@ -30,10 +28,8 @@ namespace SanAndres_Api.Controllers
     {
       try
       {
-
-        var create = _mapper.Map<Autopart>(request);
-        await _repo.Create(create);
-        return Ok(create);
+        var created = await _service.CreateAutopart(request);
+        return Ok(created);
       }
       catch (Exception err)
       {
@@ -44,44 +40,13 @@ namespace SanAndres_Api.Controllers
     }
 
 
-    [HttpGet("list")]
+    [HttpGet]
     public async Task<IActionResult> GetAutoparts()
     {
       try
       {
-        var list = await _repo.GetQueryable<Autopart>()
-          .Include(x => x.AutopartAssets)
-          .Include(x => x.AutopartInfos)
-              .ThenInclude(i => i.AutopartTypeInfo)
-          .Include(x => x.AutopartBrand)
-          .Include(x => x.Category)
-          .Select(x => new AutopartToListDto
-          {
-            Id = x.Id,
-            Name = x.Name,
-            BrandId = x.AutopartBrand.Id,
-            BrandName = x.AutopartBrand.Name,
-            CategoryId = x.Category.Id,
-            CategoryName = x.Category.Name,
-            Infos = x.AutopartInfos.Select(info => new AutopartInfoDto
-            {
-              Id = info.Id,
-              Value = info.Value,
-              TypeId = info.TypeId,
-              TypeName = info.AutopartTypeInfo.Name
-            }).ToList(),
-            Assets = x.AutopartAssets.Select(asset => new AutopartAssetDto
-            {
-              Id = asset.Id,
-              Asset = asset.Asset,
-              Description = asset.Description
-            }).ToList()
-          })
-          .ToListAsync();
-
+        var list = await _service.GetAutoparts();
         return Ok(list);
-
-
       }
       catch (Exception err)
       {
@@ -90,15 +55,13 @@ namespace SanAndres_Api.Controllers
         return BadRequest(err.Message);
       }
     }
-
 
     [HttpGet("brands")]
     public async Task<IActionResult> GetBrands()
     {
       try
       {
-        var list = _mapper.Map<List<AutopartBrandToListDto>>(await _repo.GetAll<AutopartBrand>());
-
+        var list = await _dataServ.GetBrands();
         return Ok(list);
       }
       catch (Exception err)
@@ -109,15 +72,12 @@ namespace SanAndres_Api.Controllers
       }
     }
 
-
-
     [HttpGet("categories")]
     public async Task<IActionResult> GetCategories()
     {
       try
       {
-        var list = _mapper.Map<List<AutopartCategoryToListDto>>(await _repo.GetAll<Category>());
-
+        var list = await _dataServ.GetCategories();
         return Ok(list);
       }
       catch (Exception err)
@@ -134,8 +94,7 @@ namespace SanAndres_Api.Controllers
     {
       try
       {
-        var newInfo = _mapper.Map<AutopartInfo>(create);
-        await _repo.Create(newInfo);
+        var newInfo = await _dataServ.CreateInfo(create);
         return Ok(newInfo);
       }
       catch (Exception err)
@@ -145,13 +104,13 @@ namespace SanAndres_Api.Controllers
         return BadRequest(err.Message);
       }
     }
+
     [HttpDelete("info/{id}")]
     public async Task<IActionResult> DeleteInfo(int id)
     {
       try
       {
-        var info = await _repo.GetById<AutopartInfo>(id);
-        await _repo.Remove(info);
+        await _dataServ.DeleteInfo(id);
         return Ok("Eliminado correctamente!");
       }
       catch (Exception err)
@@ -167,10 +126,7 @@ namespace SanAndres_Api.Controllers
     {
       try
       {
-        string path_asset = _cloudinary.UploadFile(create.Asset, $"SanAndres/Assets");
-        var newAsset = _mapper.Map<AutopartAsset>(create);
-        newAsset.Asset = path_asset;
-        await _repo.Create(newAsset);
+        var newAsset = await _dataServ.CreateAsset(create);
         return Ok(newAsset);
       }
       catch (Exception err)
@@ -186,8 +142,7 @@ namespace SanAndres_Api.Controllers
     {
       try
       {
-        var asset = await _repo.GetById<AutopartAsset>(id);
-        await _repo.Remove(asset);
+        await _dataServ.DeleteAsset(id);
         return Ok("Eliminado correctamente!");
       }
       catch (Exception err)
@@ -199,23 +154,16 @@ namespace SanAndres_Api.Controllers
     }
 
     [HttpPost("of-seller")]
-    public async Task<IActionResult> CreateOfSeller([FromBody] AutopartOfSellerDto request)
+    public async Task<IActionResult> CreateOfSeller([FromBody] AutopartOfSellerToCreateDto request)
     {
       try
       {
-        var autopart = new AutopartOfSeller
-        {
-          AutopartId = request.AutopartId,
-          SellerId = request.SellerId,
-          AmountUnit = request.AmountUnit,
-          AmountUnitPublic = request.AmountUnitPublic,
-          UnitPrice = request.UnitPrice,
-          UnitPricePublic = request.UnitPricePublic,
-          WholessalePrice = request.WholessalePrice,
-          WholessalePricePublic = request.WholessalePricePublic
-        };
+        var userId = Int32.Parse(User.FindFirst("id")?.Value);
+        var seller = User.FindFirst("seller")?.Value;
 
-        await _repo.Create(autopart);
+        if (seller != "True")
+          return Unauthorized("Usuario no autorizado");
+        var autopart = await _service.CreateAutopartOfSeller(request, userId);
 
         return Ok(autopart);
       }
@@ -232,10 +180,8 @@ namespace SanAndres_Api.Controllers
     {
       try
       {
-        var list = await _repo.GetQueryable<AutopartOfSeller>()
-          .Include(x => x.Autopart)
-        .ToListAsync();
-        return Ok(_mapper.Map<List<AutopartOfSellerDto>>(list));
+        var list = await _service.GetAutopartOfSeller();
+        return Ok(list);
       }
       catch (Exception err)
       {
@@ -250,27 +196,7 @@ namespace SanAndres_Api.Controllers
     {
       try
       {
-        var autopart = await _repo.GetById<AutopartOfSeller>(id);
-
-        if (update.AmountUnit != null)
-          autopart.AmountUnit = (int)update.AmountUnit;
-
-        if (update.AmountUnitPublic != null)
-          autopart.AmountUnitPublic = (int)update.AmountUnitPublic;
-
-        if (update.UnitPrice != null)
-          autopart.UnitPrice = (decimal)update.UnitPrice;
-
-        if (update.UnitPricePublic != null)
-          autopart.UnitPricePublic = (decimal)update.UnitPricePublic;
-
-        if (update.WholessalePrice != null)
-          autopart.WholessalePrice = (decimal)update.WholessalePrice;
-
-        if (update.WholessalePricePublic != null)
-          autopart.WholessalePricePublic = (decimal)update.WholessalePricePublic;
-
-        await _repo.Update(autopart);
+        var autopart = await _service.UpdateAutopart(update, id);
         return Ok(autopart);
       }
       catch (Exception err)
@@ -287,8 +213,7 @@ namespace SanAndres_Api.Controllers
     {
       try
       {
-        var autopart = await _repo.GetById<AutopartOfSeller>(id);
-        await _repo.Remove(autopart);
+        await _service.DeleteAutopartOfSeller(id);
         return Ok("Se elimino correctamente");
       }
       catch (Exception err)

@@ -14,11 +14,13 @@ namespace SanAndres_Api.Helpers
       CreateMap<AuthRegisterDto, User>();
       CreateMap<AuthRegisterDto, UserInfo>();
       CreateMap<AutopartOfSeller, AutopartOfSellerDto>();
+      CreateMap<AutopartOfSellerToCreateDto, AutopartOfSeller>();
       CreateMap<AutopartToCreateDto, Autopart>();
 
       CreateMap<AutopartBrand, AutopartBrandToListDto>();
       CreateMap<Category, AutopartCategoryToListDto>();
       CreateMap<AutopartInfoToCreate, AutopartInfo>();
+      CreateMap<AutopartInfo, AutopartInfoDto>();
       CreateMap<AutopartAssetToCreate, AutopartAsset>();
 
 
