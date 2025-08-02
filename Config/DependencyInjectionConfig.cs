@@ -26,6 +26,7 @@ namespace SanAndres_Api.Config
       services.AddScoped<ICustomerOfSellerService, CustomerOfSellerService>();
       services.AddScoped<IAutopartService, AutopartService>();
       services.AddScoped<IAutopartDataService, AutopartDataService>();
+      services.AddScoped<ISyncService, SyncService>();
     }
   }
 }

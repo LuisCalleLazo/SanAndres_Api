@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SanAndres_Api.Dtos;
@@ -10,78 +11,128 @@ using SanAndres_Api.Services.Interfaces;
 
 namespace SanAndres_Api.Controllers
 {
+  [Authorize]
   [Route("api/v1/syncronization")]
   [ApiController]
   public class SyncronizationController : ControllerBase
   {
     private readonly ILogger<SyncronizationController> _logger;
-    private readonly ITRepository _repo;
-    private readonly IMapper _mapper;
-    public SyncronizationController(ILogger<SyncronizationController> logger, ITRepository repo, IMapper mapper)
+    private readonly ISyncService _service;
+    public SyncronizationController(ILogger<SyncronizationController> logger, ISyncService service)
     {
       _logger = logger;
-      _repo = repo;
-      _mapper = mapper;
+      _service = service;
     }
 
-    [HttpPost("autoparts")]
-    public async Task<IActionResult> SyncronizationAutopart([FromBody] List<AutopartOfSellerDto> syncData)
+    [HttpPost("autoparts-of-seller")]
+    public async Task<IActionResult> SyncronizationAutopartOfSeller([FromBody] List<AutopartOfSellerDto> syncData)
     {
       try
       {
-        var userId = User.FindFirstValue("id");
+        var userId = Int32.Parse(User.FindFirst("id")?.Value);
+        var seller = User.FindFirst("seller")?.Value;
 
-        if (userId == null)
-          return BadRequest("No identificado");
+        if (seller != "True")
+          return Unauthorized("Usuario no autorizado");
 
-        int sellerId = Int32.Parse(userId);
+        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
 
-        // Obtener autopartes existentes del vendedor
-        var existingAutoparts = await _repo.GetQueryable<AutopartOfSeller>()
-            .Where(x => x.SellerId == sellerId)
-            .ToListAsync();
+        return Ok(result);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
 
-        foreach (var dto in syncData)
-        {
-            // Buscar si ya existe esta autoparte para este vendedor
-            var existing = existingAutoparts.FirstOrDefault(x => 
-                x.AutopartId == dto.AutopartId && x.SellerId == sellerId);
+    [HttpPost("autoparts")]
+    public async Task<IActionResult> SyncronizationAutoparts([FromBody] List<AutopartOfSellerDto> syncData)
+    {
+      try
+      {
+        var userId = Int32.Parse(User.FindFirst("id")?.Value);
+        var seller = User.FindFirst("seller")?.Value;
 
-            if (existing != null)
-            {
-                // Actualizar registro existente
-                existing.AmountUnit = dto.AmountUnit;
-                existing.AmountUnitPublic = dto.AmountUnitPublic;
-                existing.UnitPrice = dto.UnitPrice;
-                existing.UnitPricePublic = dto.UnitPricePublic;
-                existing.WholessalePrice = dto.WholessalePrice;
-                existing.WholessalePricePublic = dto.WholessalePricePublic;
-                
-                await _repo.Update(existing);
-            }
-            else
-            {
-                // Crear nuevo registro
-                var newAutopart = new AutopartOfSeller
-                {
-                    AutopartId = dto.AutopartId,
-                    SellerId = sellerId,
-                    AmountUnit = dto.AmountUnit,
-                    AmountUnitPublic = dto.AmountUnitPublic,
-                    UnitPrice = dto.UnitPrice,
-                    UnitPricePublic = dto.UnitPricePublic,
-                    WholessalePrice = dto.WholessalePrice,
-                    WholessalePricePublic = dto.WholessalePricePublic
-                };
-                
-                await _repo.Create(newAutopart);
-            }
-        }
+        if (seller != "True")
+          return Unauthorized("Usuario no autorizado");
 
-        var autopartsFinally = await _repo.GetQueryable<AutopartOfSeller>()
-          .Where(x => x.SellerId == sellerId).ToListAsync();
+        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
 
-        return Ok(autopartsFinally);
+        return Ok(result);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+
+    [HttpPost("customers")]
+    public async Task<IActionResult> SyncronizationCustomers([FromBody] List<AutopartOfSellerDto> syncData)
+    {
+      try
+      {
+        var userId = Int32.Parse(User.FindFirst("id")?.Value);
+        var seller = User.FindFirst("seller")?.Value;
+
+        if (seller != "True")
+          return Unauthorized("Usuario no autorizado");
+
+        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+
+        return Ok(result);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+
+    [HttpPost("sales")]
+    public async Task<IActionResult> SyncronizationSales([FromBody] List<AutopartOfSellerDto> syncData)
+    {
+      try
+      {
+        var userId = Int32.Parse(User.FindFirst("id")?.Value);
+        var seller = User.FindFirst("seller")?.Value;
+
+        if (seller != "True")
+          return Unauthorized("Usuario no autorizado");
+
+        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+
+        return Ok(result);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+
+    [HttpPost("buys")]
+    public async Task<IActionResult> SyncronizationBuys([FromBody] List<AutopartOfSellerDto> syncData)
+    {
+      try
+      {
+        var userId = Int32.Parse(User.FindFirst("id")?.Value);
+        var seller = User.FindFirst("seller")?.Value;
+
+        if (seller != "True")
+          return Unauthorized("Usuario no autorizado");
+
+        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+
+        return Ok(result);
       }
       catch (Exception err)
       {
