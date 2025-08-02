@@ -1,5 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SanAndres_Api.Dtos;
@@ -153,6 +154,9 @@ namespace SanAndres_Api.Controllers
       }
     }
 
+    // AUTOPART OF SELLER
+
+    [Authorize]
     [HttpPost("of-seller")]
     public async Task<IActionResult> CreateOfSeller([FromBody] AutopartOfSellerToCreateDto request)
     {
@@ -175,6 +179,7 @@ namespace SanAndres_Api.Controllers
       }
     }
 
+    [Authorize]
     [HttpGet("of-seller/{sellerId}")]
     public async Task<IActionResult> GetAutopartss(int sellerId)
     {
@@ -191,6 +196,7 @@ namespace SanAndres_Api.Controllers
       }
     }
 
+    [Authorize]
     [HttpPatch("of-seller/{id}")]
     public async Task<IActionResult> PatchAutopartOfSeller(int id, [FromBody] AutopartOfSellerToUpdateDto update)
     {
@@ -208,6 +214,7 @@ namespace SanAndres_Api.Controllers
     }
 
 
+    [Authorize]
     [HttpDelete("of-seller/{id}")]
     public async Task<IActionResult> DeleteAutopartOfSeller(int id)
     {
