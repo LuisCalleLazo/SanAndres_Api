@@ -9,10 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("CloudinarySettings"));
 
 // Config Network
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-  serverOptions.Listen(System.Net.IPAddress.Any, 5000);  // HTTP
-});
+// builder.WebHost.ConfigureKestrel(serverOptions =>
+// {
+//   serverOptions.Listen(System.Net.IPAddress.Any, 5000);  // HTTP
+// });
 
 // Controllers
 builder.Services.AddControllers();
