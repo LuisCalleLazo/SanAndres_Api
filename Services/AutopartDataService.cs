@@ -1,5 +1,6 @@
 using AutoMapper;
 using CloudinaryDotNet.Actions;
+using Microsoft.EntityFrameworkCore;
 using SanAndres_Api.Dtos;
 using SanAndres_Api.Models;
 using SanAndres_Api.Repositories.Interfaces;
@@ -19,7 +20,50 @@ namespace SanAndres_Api.Services
       _cloudinary = cloudinary;
     }
 
-    public async Task<List<AutopartBrandToListDto>> GetBrands() => _mapper.Map<List<AutopartBrandToListDto>>(await _repo.GetAll<AutopartBrand>());
+    public async Task<List<AutopartBrandToListDto>> GetBrands() =>
+      _mapper.Map<List<AutopartBrandToListDto>>(
+        await _repo.GetQueryable<AutopartBrand>()
+        .Where(x => x.DeleteAt == DateTime.MinValue)
+        .ToListAsync());
+
+    public async Task<AutopartBrandToListDto> CreateAutopartBrand(AutopartBrandToCreate create)
+    {
+      string path_asset = _cloudinary.UploadFile(create.Logo, $"SanAndres/Brand");
+      var brand = _mapper.Map<AutopartBrand>(create);
+      brand.Logo = path_asset;
+
+      await _repo.Create(brand);
+
+      return _mapper.Map<AutopartBrandToListDto>(brand);
+    }
+
+    public async Task<AutopartBrandToListDto> DeleteAutopartBrand(int id)
+    {
+      var brand = await _repo.GetById<AutopartBrand>(id);
+      brand.DeleteAt = DateTime.UtcNow;
+
+      await _repo.Update(brand);
+      return _mapper.Map<AutopartBrandToListDto>(brand);
+    }
+
+    public async Task<AutopartBrandToListDto> UpdateAutopartBrand(AutopartBrandToUpdate update, int id)
+    {
+      var brand = await _repo.GetById<AutopartBrand>(id);
+
+      if (update.Logo != null)
+      {
+        string path_asset = _cloudinary.UploadFile(update.Logo, $"SanAndres/Brand");
+        brand.Logo = path_asset;
+      }
+
+      if (update.Name != null)
+        brand.Name = update.Name;
+
+      brand.UpdateAt = DateTime.UtcNow;
+
+      await _repo.Update(brand);
+      return _mapper.Map<AutopartBrandToListDto>(brand);
+    }
     public async Task<List<AutopartCategoryToListDto>> GetCategories() => _mapper.Map<List<AutopartCategoryToListDto>>(await _repo.GetAll<Category>());
 
     public async Task<string> CreateAsset(AutopartAssetToCreate create)
@@ -46,7 +90,7 @@ namespace SanAndres_Api.Services
       var info = await _repo.GetById<AutopartInfo>(id);
       await _repo.Remove(info);
     }
-    
+
     public async Task DeleteAsset(int id)
     {
       var info = await _repo.GetById<AutopartAsset>(id);

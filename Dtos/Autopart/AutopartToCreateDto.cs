@@ -20,7 +20,12 @@ namespace SanAndres_Api.Dtos
     {
         public IFormFile Logo { get; set; }
         public string Name { get; set; }
-        public int AutopartId { get; set; }
+    }
+
+    public class AutopartBrandToUpdate
+    {
+        public IFormFile Logo { get; set; }
+        public string Name { get; set; }
     }
 
     public class AutopartInfoToCreate

@@ -18,6 +18,7 @@ namespace SanAndres_Api.Helpers
       CreateMap<AutopartToCreateDto, Autopart>();
 
       CreateMap<AutopartBrand, AutopartBrandToListDto>();
+      CreateMap<AutopartBrandToCreate, AutopartBrand>();
       CreateMap<Category, AutopartCategoryToListDto>();
       CreateMap<AutopartInfoToCreate, AutopartInfo>();
       CreateMap<AutopartInfo, AutopartInfoDto>();

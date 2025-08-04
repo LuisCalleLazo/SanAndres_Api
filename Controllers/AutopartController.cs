@@ -24,29 +24,13 @@ namespace SanAndres_Api.Controllers
       _dataServ = dataServ;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Create([FromBody] AutopartToCreateDto request)
+
+    [HttpGet("brand")]
+    public async Task<IActionResult> GetBrands()
     {
       try
       {
-        var created = await _service.CreateAutopart(request);
-        return Ok(created);
-      }
-      catch (Exception err)
-      {
-        _logger.LogError(err.Message);
-        _logger.LogError(err.StackTrace);
-        return BadRequest(err.Message);
-      }
-    }
-
-
-    [HttpGet]
-    public async Task<IActionResult> GetAutoparts()
-    {
-      try
-      {
-        var list = await _service.GetAutoparts();
+        var list = await _dataServ.GetBrands();
         return Ok(list);
       }
       catch (Exception err)
@@ -57,12 +41,44 @@ namespace SanAndres_Api.Controllers
       }
     }
 
-    [HttpGet("brands")]
-    public async Task<IActionResult> GetBrands()
+    [HttpPost("brand")]
+    public async Task<IActionResult> CreateBrand([FromForm] AutopartBrandToCreate create)
     {
       try
       {
-        var list = await _dataServ.GetBrands();
+        var list = await _dataServ.CreateAutopartBrand(create);
+        return Ok(list);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+    [HttpPatch("brand/{id}")]
+    public async Task<IActionResult> UpdateBrand(int id, [FromForm] AutopartBrandToUpdate update)
+    {
+      try
+      {
+        var list = await _dataServ.UpdateAutopartBrand(update, id);
+        return Ok(list);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+    [HttpDelete("brand/{id}")]
+    public async Task<IActionResult> DeleteBrand(int id)
+    {
+      try
+      {
+        var list = await _dataServ.DeleteAutopartBrand(id);
         return Ok(list);
       }
       catch (Exception err)
@@ -154,6 +170,38 @@ namespace SanAndres_Api.Controllers
       }
     }
 
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] AutopartToCreateDto request)
+    {
+      try
+      {
+        var created = await _service.CreateAutopart(request);
+        return Ok(created);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+
+    [HttpGet]
+    public async Task<IActionResult> GetAutoparts()
+    {
+      try
+      {
+        var list = await _service.GetAutoparts();
+        return Ok(list);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
   }
 
 }
