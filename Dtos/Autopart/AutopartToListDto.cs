@@ -48,4 +48,13 @@ namespace SanAndres_Api.Dtos
         public string Description { get; set; }
     }
 
+    public class AutopartInfoTypeDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public AutopartTypeInfoEnum TypeValue { get; set; }
+    }
+
+
 }

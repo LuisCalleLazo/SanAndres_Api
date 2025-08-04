@@ -89,7 +89,7 @@ namespace SanAndres_Api.Controllers
       }
     }
 
-    [HttpGet("categories")]
+    [HttpGet("category")]
     public async Task<IActionResult> GetCategories()
     {
       try
@@ -105,6 +105,72 @@ namespace SanAndres_Api.Controllers
       }
     }
 
+    [HttpPost("category")]
+    public async Task<IActionResult> CreateCategories([FromBody] AutopartCategoryToCreate create)
+    {
+      try
+      {
+        var list = await _dataServ.CreateCategory(create);
+        return Ok(list);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+
+    [HttpPatch("category/{id}")]
+    public async Task<IActionResult> UpdateCategories(int id, [FromBody] AutopartCategoryToCreate update)
+    {
+      try
+      {
+        var list = await _dataServ.UpdateCategory(update, id);
+        return Ok(list);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+
+    [HttpDelete("category/{id}")]
+    public async Task<IActionResult> DeleteCategory(int id)
+    {
+      try
+      {
+        var list = await _dataServ.DeleteCategory(id);
+        return Ok(list);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+
+    [HttpGet("type-info")]
+    public async Task<IActionResult> ListTypesInfo()
+    {
+      try
+      {
+        var newInfo = await _dataServ.GetAutopartInfoTypes();
+        return Ok(newInfo);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
 
     [HttpPost("info")]
     public async Task<IActionResult> CreateInfo([FromBody] AutopartInfoToCreate create)

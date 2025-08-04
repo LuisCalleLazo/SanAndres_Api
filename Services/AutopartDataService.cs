@@ -64,7 +64,44 @@ namespace SanAndres_Api.Services
       await _repo.Update(brand);
       return _mapper.Map<AutopartBrandToListDto>(brand);
     }
-    public async Task<List<AutopartCategoryToListDto>> GetCategories() => _mapper.Map<List<AutopartCategoryToListDto>>(await _repo.GetAll<Category>());
+
+
+    public async Task<List<AutopartCategoryToListDto>> GetCategories() =>
+      _mapper.Map<List<AutopartCategoryToListDto>>(
+        await _repo.GetQueryable<Category>()
+        .Where(x => x.DeleteAt == DateTime.MinValue)
+        .ToListAsync()
+      );
+
+    public async Task<AutopartCategoryToListDto> CreateCategory(AutopartCategoryToCreate create)
+    {
+      var category = _mapper.Map<Category>(create);
+      await _repo.Create(category);
+      return _mapper.Map<AutopartCategoryToListDto>(category);
+    }
+
+    public async Task<AutopartCategoryToListDto> UpdateCategory(AutopartCategoryToCreate update, int id)
+    {
+      var category = await _repo.GetById<Category>(id);
+      if (update.Name != null)
+        category.Name = update.Name;
+
+      if (update.Description != null)
+        category.Description = update.Description;
+
+      
+      category.UpdateAt = DateTime.UtcNow;
+      await _repo.Update(category);
+      return _mapper.Map<AutopartCategoryToListDto>(category);
+    }
+
+    public async Task<AutopartCategoryToListDto> DeleteCategory(int id)
+    {
+      var category = await _repo.GetById<Category>(id);
+      category.DeleteAt = DateTime.UtcNow;
+      await _repo.Update(category);
+      return _mapper.Map<AutopartCategoryToListDto>(category);
+    }
 
     public async Task<string> CreateAsset(AutopartAssetToCreate create)
     {
@@ -76,7 +113,11 @@ namespace SanAndres_Api.Services
 
       return path_asset;
     }
-
+    public async Task<List<AutopartInfoTypeDto>> GetAutopartInfoTypes() =>
+      _mapper.Map<List<AutopartInfoTypeDto>>(
+        await _repo.GetQueryable<AutopartTypeInfo>()
+        .Where(x => x.DeleteAt == DateTime.MinValue)
+        .ToListAsync());
     public async Task<AutopartInfoDto> CreateInfo(AutopartInfoToCreate create)
     {
       var newInfo = _mapper.Map<AutopartInfo>(create);
@@ -88,7 +129,8 @@ namespace SanAndres_Api.Services
     public async Task DeleteInfo(int id)
     {
       var info = await _repo.GetById<AutopartInfo>(id);
-      await _repo.Remove(info);
+      info.DeleteAt = DateTime.UtcNow;
+      await _repo.Update(info);
     }
 
     public async Task DeleteAsset(int id)
