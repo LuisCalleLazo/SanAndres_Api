@@ -4,9 +4,37 @@ trigger:
 pool:
   name: Default 
 
+variables:
+  DOCKER_IMAGE_NAME: 'sanandres_api'
+  DOCKER_NETWORK: 'san_andres'
+  VOLUME_NAME: 'autoparts'
+  PORT: '5000:8080'
+  ENVIRONMENT: 'Development'
+  
 steps:
-- script: |
-    echo "¡Hola desde el VPS!"
-    echo "Estoy ejecutándome en el agente: $(Agent.Name)"
-    echo "Ruta del trabajo: $(Pipeline.Workspace)"
-  displayName: 'Saludo y verificación'
+  - script: |
+      echo "1. Actualizando código desde el repositorio..."
+      cd /var/www/SanAndres_Api
+      git pull origin main
+    
+      echo "2. Construyendo imagen Docker..."
+      docker build -t $(DOCKER_IMAGE_NAME) .
+
+      echo "3. Deteniendo contenedor existente..."
+      docker stop $(DOCKER_IMAGE_NAME) || true  # || true evita errores si el contenedor no existe
+      docker rm $(DOCKER_IMAGE_NAME) || true
+      echo "4. Ejecutando nuevo contenedor..."
+      docker run -d \
+        -p $(PORT) \
+        --network $(DOCKER_NETWORK) \
+        -v $(VOLUME_NAME):/app \
+        -e ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT) \
+        -e ConnectionStrings__DefaultConnection="$(POSTGRES_CONNECTION_STRING)" \
+        --name $(DOCKER_IMAGE_NAME) \
+        $(DOCKER_IMAGE_NAME):latest
+
+      echo "¡Despliegue completado!"
+    displayName: 'Desplegar con Docker'
+
+    env:
+      POSTGRES_CONNECTION_STRING: $(POSTGRES_CONNECTION_STRING)
