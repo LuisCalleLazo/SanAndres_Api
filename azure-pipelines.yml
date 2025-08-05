@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: vps-initial
 
 steps:
 - script: echo Hello, world!
