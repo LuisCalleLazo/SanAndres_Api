@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: vps-initial
+pool: SanAndres
 
 steps:
 - script: echo Hello, world!
