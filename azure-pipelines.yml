@@ -15,7 +15,7 @@ steps:
   - script: |
       echo "1. Actualizando código desde el repositorio..."
       cd /var/www/SanAndres_Api
-      git pull origin main
+      git merge origin/main
     
       echo "2. Construyendo imagen Docker..."
       docker build -t $(DOCKER_IMAGE_NAME) .
