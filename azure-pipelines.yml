@@ -11,30 +11,36 @@ variables:
   ENVIRONMENT: 'Development'
   
 steps:
+  # Paso 1: Checkout oficial en lugar de git pull
+  - checkout: self
+    clean: true  # Esto reemplaza tu git reset/clean
+    fetchDepth: 1  # Solo el último commit para mayor velocidad
+
+  # Paso 2: Build de Docker
+  - task: Docker@2
+    displayName: 'Build Docker image'
+    inputs:
+      command: build
+      repository: $(DOCKER_IMAGE_NAME)
+      dockerfile: '**/Dockerfile'
+      buildContext: '.'
+      tags: latest
+
+  # Paso 3: Parar y eliminar contenedor existente
   - script: |
-      echo "1. Actualizando código desde el repositorio..."
-      cd /var/www/SanAndres_Api
-      git reset --hard HEAD  # Resetea cualquier cambio local
-      git clean -fd          # Elimina archivos no rastreados
-      git pull origin main
-    
-      echo "2. Construyendo imagen Docker..."
-      docker build --no-cache -t $(DOCKER_IMAGE_NAME) .
-
-      echo "3. Deteniendo contenedor existente..."
-      docker stop $(DOCKER_IMAGE_NAME) || true  # || true evita errores si el contenedor no existe
+      docker stop $(DOCKER_IMAGE_NAME) || true
       docker rm -v $(DOCKER_IMAGE_NAME) || true
-      echo "4. Ejecutando nuevo contenedor..."
-      docker run -d \
-        -p $(PORT) \
-        --network $(DOCKER_NETWORK) \
-        -e ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT) \
-        -e ConnectionStrings__DefaultConnection="$(POSTGRES_CONNECTION_STRING)" \
-        --name $(DOCKER_IMAGE_NAME) \
-        $(DOCKER_IMAGE_NAME):latest
+    displayName: 'Remove existing container'
 
-      echo "¡Despliegue completado!"
-    displayName: 'Desplegar con Docker'
-
-    env:
-      POSTGRES_CONNECTION_STRING: $(POSTGRES_CONNECTION_STRING)
+  # Paso 4: Ejecutar nuevo contenedor
+  - task: Docker@2
+    displayName: 'Run Docker container'
+    inputs:
+      command: run
+      containerName: $(DOCKER_IMAGE_NAME)
+      imageName: $(DOCKER_IMAGE_NAME):latest
+      ports: $(PORT)
+      envVars: |
+        ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT)
+        ConnectionStrings__DefaultConnection=$(POSTGRES_CONNECTION_STRING)
+      network: $(DOCKER_NETWORK)
