@@ -33,17 +33,14 @@ steps:
     displayName: 'Remove existing container'
 
   # Paso 4: Ejecutar nuevo contenedor
-  - task: Docker@2
+  - script: |
+      docker run -d \
+        -p $(PORT) \
+        --network $(DOCKER_NETWORK) \
+        -e ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT) \
+        -e ConnectionStrings__DefaultConnection="$(POSTGRES_CONNECTION_STRING)" \
+        --name $(DOCKER_IMAGE_NAME) \
+        $(DOCKER_IMAGE_NAME):latest
     displayName: 'Run Docker container'
-    inputs:
-      command: run
-      containerName: $(DOCKER_IMAGE_NAME)
-      imageName: $(DOCKER_IMAGE_NAME):latest
-      ports: $(PORT)
-      environmentVariables: |
-        ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT)
-        ConnectionStrings__DefaultConnection=$(POSTGRES_CONNECTION_STRING)
-      volumes: ''
-      network: $(DOCKER_NETWORK)
-      detach: true
-      restartPolicy: no
+    env:
+      POSTGRES_CONNECTION_STRING: $(POSTGRES_CONNECTION_STRING)
