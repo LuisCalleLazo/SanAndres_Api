@@ -172,6 +172,54 @@ namespace SanAndres_Api.Controllers
       }
     }
 
+    [HttpPost("type-info")]
+    public async Task<IActionResult> CreateTypeInfo(AutopartInfoTypeToCreateDto create)
+    {
+      try
+      {
+        var newInfo = await _dataServ.CreateAutopartInfoType(create);
+        return Ok(newInfo);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
+    [HttpPatch("type-info/{id}")]
+    public async Task<IActionResult> PatchTypeInfo(int id, [FromBody] AutopartInfoTypeToUpdateDto update)
+    {
+      try
+      {
+        var newInfo = await _dataServ.UpdateAutopartInfoType(update, id);
+        return Ok(newInfo);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+    
+    [HttpDelete("type-info/{id}")]
+    public async Task<IActionResult> DeleteTypeInfo(int id)
+    {
+      try
+      {
+        var newInfo = await _dataServ.DeleteAutopartTypeInfo(id);
+        return Ok(newInfo);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        _logger.LogError(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
+
     [HttpPost("info")]
     public async Task<IActionResult> CreateInfo([FromBody] AutopartInfoToCreate create)
     {

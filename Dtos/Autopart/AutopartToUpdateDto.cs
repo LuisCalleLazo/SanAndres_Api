@@ -1,3 +1,5 @@
+using SanAndres_Api.Models;
+
 namespace SanAndres_Api.Dtos
 {
     public class AutopartOfSellerToUpdateDto
@@ -8,5 +10,12 @@ namespace SanAndres_Api.Dtos
         public decimal? UnitPricePublic { get; set; }
         public decimal? WholessalePrice { get; set; }
         public decimal? WholessalePricePublic { get; set; }
+    }
+
+    public class AutopartInfoTypeToUpdateDto
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public AutopartTypeInfoEnum? TypeValue { get; set; }
     }
 }

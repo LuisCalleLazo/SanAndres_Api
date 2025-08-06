@@ -24,6 +24,7 @@ namespace SanAndres_Api.Helpers
       CreateMap<AutopartInfo, AutopartInfoDto>();
       CreateMap<AutopartAssetToCreate, AutopartAsset>();
       CreateMap<AutopartTypeInfo, AutopartInfoTypeDto>();
+      CreateMap<AutopartInfoTypeToCreateDto, AutopartTypeInfo>();
 
 
       CreateMap<SaleDetailToCreateDto, SaleDetail>()

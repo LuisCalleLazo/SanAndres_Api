@@ -89,7 +89,7 @@ namespace SanAndres_Api.Services
       if (update.Description != null)
         category.Description = update.Description;
 
-      
+
       category.UpdateAt = DateTime.UtcNow;
       await _repo.Update(category);
       return _mapper.Map<AutopartCategoryToListDto>(category);
@@ -118,6 +118,39 @@ namespace SanAndres_Api.Services
         await _repo.GetQueryable<AutopartTypeInfo>()
         .Where(x => x.DeleteAt == DateTime.MinValue)
         .ToListAsync());
+
+    public async Task<AutopartInfoTypeDto> CreateAutopartInfoType(AutopartInfoTypeToCreateDto create)
+    {
+      var created = _mapper.Map<AutopartTypeInfo>(create);
+      await _repo.Create(created);
+      return _mapper.Map<AutopartInfoTypeDto>(created);
+    }
+
+    public async Task<AutopartInfoTypeDto> UpdateAutopartInfoType(AutopartInfoTypeToUpdateDto update, int id)
+    {
+      var type = await _repo.GetById<AutopartTypeInfo>(id);
+
+      if (update.Name != null)
+        type.Name = update.Name;
+
+      if (update.Description != null)
+        type.Description = update.Description;
+
+      if (update.TypeValue != null)
+        type.TypeValue = (AutopartTypeInfoEnum)update.TypeValue;
+
+      await _repo.Update(type);
+
+      return _mapper.Map<AutopartInfoTypeDto>(type);
+    }
+
+    public async Task<AutopartInfoTypeDto> DeleteAutopartTypeInfo(int id)
+    {
+      var type = await _repo.GetById<AutopartTypeInfo>(id);
+      type.DeleteAt = DateTime.UtcNow;
+      await _repo.Update(type);
+      return _mapper.Map<AutopartInfoTypeDto>(type);
+    }
     public async Task<AutopartInfoDto> CreateInfo(AutopartInfoToCreate create)
     {
       var newInfo = _mapper.Map<AutopartInfo>(create);

@@ -17,6 +17,11 @@ namespace SanAndres_Api.Services.Interfaces
     Task<AutopartCategoryToListDto> DeleteCategory(int id);
 
     Task<List<AutopartInfoTypeDto>> GetAutopartInfoTypes();
+    Task<AutopartInfoTypeDto> CreateAutopartInfoType(AutopartInfoTypeToCreateDto create);
+    Task<AutopartInfoTypeDto> UpdateAutopartInfoType(AutopartInfoTypeToUpdateDto update, int id);
+    Task<AutopartInfoTypeDto> DeleteAutopartTypeInfo(int id);
+
+
     Task<string> CreateAsset(AutopartAssetToCreate create);
     Task<AutopartInfoDto> CreateInfo(AutopartInfoToCreate create);
     Task DeleteInfo(int id);
