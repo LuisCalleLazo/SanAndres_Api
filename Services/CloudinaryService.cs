@@ -21,32 +21,41 @@ namespace usr_service.Services
 
       _cloudinary = new Cloudinary(acc);
     }
-    
+
     public string UploadFile(IFormFile setFile, string route)
     {
-        
+      if (setFile == null || setFile.Length == 0)
+      {
+        return null;
+      }
+
+      if (_cloudinaryConfig?.Value == null)
+      {
+        throw new InvalidOperationException("Cloudinary configuration is missing.");
+      }
+
       var uploadResult = new RawUploadResult();
 
       var file = setFile;
 
-      if (file.Length > 8000000)
+      if (file.Length > 30000000)
       {
         return null;
       }
 
       using (var stream = file.OpenReadStream())
       {
-          var uploadParams = new RawUploadParams()
-          {
-            File = new FileDescription(file.FileName, stream),
-            PublicId = route
-          };
-          uploadResult = _cloudinary.Upload(uploadParams);
+        var uploadParams = new RawUploadParams()
+        {
+          File = new FileDescription(file.FileName, stream),
+          PublicId = route
+        };
+        uploadResult = _cloudinary.Upload(uploadParams);
       }
 
-      var Url =  uploadResult.SecureUrl.ToString();
-      
-      return  Url;
+      var Url = uploadResult.SecureUrl.ToString();
+
+      return Url;
     }
 
   }
