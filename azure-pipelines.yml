@@ -41,24 +41,6 @@ steps:
       docker run -d \
         -p $(PORT) \
         --network $(DOCKER_NETWORK) \
-        -e ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT) \
-        -e ASPNETCORE_URLS=http://+:8080 \
-        -e ConnectionStrings__DefaultConnection="$(POSTGRES_CONNECTION_STRING)" \
-        -e JwtSettings__Key="$(JWT_SECRET_KEY)" \
-        -e JwtSettings__Issuer="$(JWT_ISSUER_URL)" \
-        -e JwtSettings__Audience="$(JWT_AUDIENCE_URL)" \
-        -e JasperSettings__Server="$(JASPER_SERVER)" \
-        -e JasperSettings__Database="$(JASPER_DATABASE)" \
-        -e JasperSettings__User="$(JASPER_USER)" \
-        -e JasperSettings__Password="$(JASPER_PASSWORD)" \
-        -e CloudinarySettings__CloudName="$(CLOUDINARY_NAME)" \
-        -e CloudinarySettings__ApiKey="$(CLOUDINARY_API_KEY)" \
-        -e CloudinarySettings__ApiSecret="$(CLOUDINARY_API_SECRET)" \
-        -e Authentication__Google__ClientId="$(GOOGLE_AUTH_CLIENT_ID)" \
-        -e Authentication__Google__ClientSecretId="$(GOOGLE_AUTH_CLIENT_SECRET)" \
-        -e DriveSettings__ServiceAccountEmail="$(GOOGLE_DRIVE_SERVICE_ACCOUNT)" \
-        -e IaService="$(IA_SERVICE_ENDPOINT)" \
-        
         --name $(DOCKER_IMAGE_NAME) \
         $(DOCKER_IMAGE_NAME):latest
     displayName: 'Run Docker container'
