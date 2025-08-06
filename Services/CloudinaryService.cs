@@ -34,29 +34,44 @@ namespace usr_service.Services
         throw new InvalidOperationException("Cloudinary configuration is missing.");
       }
 
-      var uploadResult = new RawUploadResult();
-
-      var file = setFile;
-
-      if (file.Length > 30000000)
+      if (setFile.Length > 30000000) // 30MB
       {
         return null;
       }
 
-      using (var stream = file.OpenReadStream())
+      try
       {
+        using var stream = setFile.OpenReadStream();
         var uploadParams = new RawUploadParams()
         {
-          File = new FileDescription(file.FileName, stream),
+          File = new FileDescription(setFile.FileName, stream),
           PublicId = route
         };
-        uploadResult = _cloudinary.Upload(uploadParams);
+
+        var uploadResult = _cloudinary.Upload(uploadParams);
+
+        if (uploadResult == null)
+        {
+          throw new InvalidOperationException("Cloudinary upload failed - no result returned");
+        }
+
+        if (uploadResult.Error != null)
+        {
+          throw new InvalidOperationException($"Cloudinary upload error: {uploadResult.Error.Message}");
+        }
+
+        if (uploadResult.SecureUrl == null)
+        {
+          throw new InvalidOperationException("Cloudinary upload succeeded but no SecureUrl was returned");
+        }
+
+        return uploadResult.SecureUrl.ToString();
       }
-
-      var Url = uploadResult.SecureUrl.ToString();
-
-      return Url;
+      catch (Exception ex)
+      {
+        // Log the exception details here
+        throw new InvalidOperationException("Failed to upload file to Cloudinary", ex);
+      }
     }
-
   }
 }
