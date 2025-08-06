@@ -7,7 +7,6 @@ pool:
 variables:
   DOCKER_IMAGE_NAME: 'sanandres_api'
   DOCKER_NETWORK: 'san_andres'
-  VOLUME_NAME: 'autoparts'
   PORT: '5000:8080'
   ENVIRONMENT: 'Development'
   
@@ -15,20 +14,20 @@ steps:
   - script: |
       echo "1. Actualizando código desde el repositorio..."
       cd /var/www/SanAndres_Api
+      git reset --hard HEAD  # Resetea cualquier cambio local
+      git clean -fd          # Elimina archivos no rastreados
       git pull origin main
-      git merge origin/main
     
       echo "2. Construyendo imagen Docker..."
-      docker build -t $(DOCKER_IMAGE_NAME) .
+      docker build --no-cache -t $(DOCKER_IMAGE_NAME) .
 
       echo "3. Deteniendo contenedor existente..."
       docker stop $(DOCKER_IMAGE_NAME) || true  # || true evita errores si el contenedor no existe
-      docker rm $(DOCKER_IMAGE_NAME) || true
+      docker rm -v $(DOCKER_IMAGE_NAME) || true
       echo "4. Ejecutando nuevo contenedor..."
       docker run -d \
         -p $(PORT) \
         --network $(DOCKER_NETWORK) \
-        -v $(VOLUME_NAME):/app \
         -e ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT) \
         -e ConnectionStrings__DefaultConnection="$(POSTGRES_CONNECTION_STRING)" \
         --name $(DOCKER_IMAGE_NAME) \
