@@ -4,7 +4,6 @@ namespace SanAndres_Api.Dtos
     {
         public int AutopartId { get; set; }
         public int SellerId { get; set; }
-
         public int AmountUnit { get; set; }
         public int AmountUnitPublic { get; set; }
         public decimal UnitPrice { get; set; }
