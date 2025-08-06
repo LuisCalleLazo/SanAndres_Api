@@ -1,22 +1,26 @@
 trigger:
 - main
 
-pool:
-  name: Default 
-
 variables:
+  # Variables básicas de configuración
   DOCKER_IMAGE_NAME: 'sanandres_api'
   DOCKER_NETWORK: 'san_andres'
   PORT: '5000:8080'
-  ENVIRONMENT: 'Development'
+  ENVIRONMENT: 'Production'  # Cambiado a Production para despliegues
   
-steps:
-  # Paso 1: Checkout oficial en lugar de git pull
-  - checkout: self
-    clean: true 
-    fetchDepth: 1  # Solo el último commit para mayor velocidad
+  # Referencia al grupo de variables (debes crearlo en Azure DevOps)
+  - group: 'SanAndres-Production-Variables'
 
-  # Paso 2: Build de Docker
+pool:
+  name: Default
+
+steps:
+  # Paso 1: Checkout del código
+  - checkout: self
+    clean: true
+    fetchDepth: 1
+
+  # Paso 2: Build de la imagen Docker
   - task: Docker@2
     displayName: 'Build Docker image'
     inputs:
@@ -26,21 +30,49 @@ steps:
       buildContext: '.'
       tags: latest
 
-  # Paso 3: Parar y eliminar contenedor existente
+  # Paso 3: Detener y eliminar contenedor existente
   - script: |
       docker stop $(DOCKER_IMAGE_NAME) || true
       docker rm -v $(DOCKER_IMAGE_NAME) || true
     displayName: 'Remove existing container'
 
-  # Paso 4: Ejecutar nuevo contenedor
+  # Paso 4: Ejecutar nuevo contenedor con todas las variables
   - script: |
       docker run -d \
         -p $(PORT) \
         --network $(DOCKER_NETWORK) \
         -e ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT) \
+        -e ASPNETCORE_URLS=http://+:8080 \
+        
+        # Configuración de base de datos
         -e ConnectionStrings__DefaultConnection="$(POSTGRES_CONNECTION_STRING)" \
+        
+        # Configuración JWT
+        -e JwtSettings__Key="$(JWT_SECRET_KEY)" \
+        -e JwtSettings__Issuer="$(JWT_ISSUER_URL)" \
+        -e JwtSettings__Audience="$(JWT_AUDIENCE_URL)" \
+        
+        # Jasper Reports
+        -e JasperSettings__Server="$(JASPER_SERVER)" \
+        -e JasperSettings__Database="$(JASPER_DATABASE)" \
+        -e JasperSettings__User="$(JASPER_USER)" \
+        -e JasperSettings__Password="$(JASPER_PASSWORD)" \
+        
+        # Cloudinary
+        -e CloudinarySettings__CloudName="$(CLOUDINARY_NAME)" \
+        -e CloudinarySettings__ApiKey="$(CLOUDINARY_API_KEY)" \
+        -e CloudinarySettings__ApiSecret="$(CLOUDINARY_API_SECRET)" \
+        
+        # Autenticación Google
+        -e Authentication__Google__ClientId="$(GOOGLE_AUTH_CLIENT_ID)" \
+        -e Authentication__Google__ClientSecretId="$(GOOGLE_AUTH_CLIENT_SECRET)" \
+        
+        # Configuración Google Drive
+        -e DriveSettings__ServiceAccountEmail="$(GOOGLE_DRIVE_SERVICE_ACCOUNT)" \
+        
+        # Otras configuraciones
+        -e IaService="$(IA_SERVICE_ENDPOINT)" \
+        
         --name $(DOCKER_IMAGE_NAME) \
         $(DOCKER_IMAGE_NAME):latest
     displayName: 'Run Docker container'
-    env:
-      POSTGRES_CONNECTION_STRING: $(POSTGRES_CONNECTION_STRING)

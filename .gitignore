@@ -4,7 +4,6 @@
 /obj
 /wwwroot
 /Logs
-/appsettings.json
 .vs
 /packages
 tasks.json
@@ -23,3 +22,6 @@ LICENSE.txt
 .env
 
 drive_client.json
+
+appsettings.*.json
+!appsettings.json 
