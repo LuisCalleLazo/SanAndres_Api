@@ -43,36 +43,38 @@ steps:
         --network $(DOCKER_NETWORK) \
         -e ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT) \
         -e ASPNETCORE_URLS=http://+:8080 \
-        
-        # Configuración de base de datos
         -e ConnectionStrings__DefaultConnection="$(POSTGRES_CONNECTION_STRING)" \
-        
-        # Configuración JWT
         -e JwtSettings__Key="$(JWT_SECRET_KEY)" \
         -e JwtSettings__Issuer="$(JWT_ISSUER_URL)" \
         -e JwtSettings__Audience="$(JWT_AUDIENCE_URL)" \
-        
-        # Jasper Reports
         -e JasperSettings__Server="$(JASPER_SERVER)" \
         -e JasperSettings__Database="$(JASPER_DATABASE)" \
         -e JasperSettings__User="$(JASPER_USER)" \
         -e JasperSettings__Password="$(JASPER_PASSWORD)" \
-        
-        # Cloudinary
         -e CloudinarySettings__CloudName="$(CLOUDINARY_NAME)" \
         -e CloudinarySettings__ApiKey="$(CLOUDINARY_API_KEY)" \
         -e CloudinarySettings__ApiSecret="$(CLOUDINARY_API_SECRET)" \
-        
-        # Autenticación Google
         -e Authentication__Google__ClientId="$(GOOGLE_AUTH_CLIENT_ID)" \
         -e Authentication__Google__ClientSecretId="$(GOOGLE_AUTH_CLIENT_SECRET)" \
-        
-        # Configuración Google Drive
         -e DriveSettings__ServiceAccountEmail="$(GOOGLE_DRIVE_SERVICE_ACCOUNT)" \
-        
-        # Otras configuraciones
         -e IaService="$(IA_SERVICE_ENDPOINT)" \
         
         --name $(DOCKER_IMAGE_NAME) \
         $(DOCKER_IMAGE_NAME):latest
     displayName: 'Run Docker container'
+    env:
+      POSTGRES_CONNECTION_STRING: $(POSTGRES_CONNECTION_STRING)
+      JWT_SECRET_KEY: $(JWT_SECRET_KEY)
+      JWT_ISSUER_URL: $(JWT_ISSUER_URL)
+      JWT_AUDIENCE_URL: $(JWT_AUDIENCE_URL)
+      JASPER_SERVER: $(JASPER_SERVER)
+      JASPER_DATABASE: $(JASPER_DATABASE)
+      JASPER_USER: $(JASPER_USER)
+      JASPER_PASSWORD: $(JASPER_PASSWORD)
+      CLOUDINARY_NAME: $(CLOUDINARY_NAME)
+      CLOUDINARY_API_KEY: $(CLOUDINARY_API_KEY)
+      CLOUDINARY_API_SECRET: $(CLOUDINARY_API_SECRET)
+      GOOGLE_AUTH_CLIENT_ID: $(GOOGLE_AUTH_CLIENT_ID)
+      GOOGLE_AUTH_CLIENT_SECRET: $(GOOGLE_AUTH_CLIENT_SECRET)
+      GOOGLE_DRIVE_SERVICE_ACCOUNT: $(GOOGLE_DRIVE_SERVICE_ACCOUNT)
+      IA_SERVICE_ENDPOINT: $(IA_SERVICE_ENDPOINT)
