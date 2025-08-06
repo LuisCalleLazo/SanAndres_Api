@@ -28,9 +28,12 @@ namespace SanAndres_Api.Services
 
     public async Task<AutopartBrandToListDto> CreateAutopartBrand(AutopartBrandToCreate create)
     {
-      string path_asset = _cloudinary.UploadFile(create.Logo, $"SanAndres/Brand");
       var brand = _mapper.Map<AutopartBrand>(create);
-      brand.Logo = path_asset;
+      if (create.Logo != null)
+      {
+        string path_asset = _cloudinary.UploadFile(create.Logo, $"SanAndres/Brand");
+        brand.Logo = path_asset;
+      }
 
       await _repo.Create(brand);
 
