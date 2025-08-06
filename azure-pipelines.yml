@@ -9,7 +9,7 @@ variables:
   ENVIRONMENT: 'Production'  # Cambiado a Production para despliegues
   
   # Referencia al grupo de variables (debes crearlo en Azure DevOps)
-  - group: 'SanAndres-Production'
+  group: SanAndres-Production
 
 pool:
   name: Default
