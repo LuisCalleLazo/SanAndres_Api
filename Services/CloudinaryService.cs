@@ -26,7 +26,7 @@ namespace usr_service.Services
     {
       if (setFile == null || setFile.Length == 0)
       {
-        return null;
+        throw new InvalidOperationException("Not Exist File");
       }
 
       if (_cloudinaryConfig?.Value == null)
