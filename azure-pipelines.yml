@@ -13,7 +13,7 @@ variables:
 steps:
   # Paso 1: Checkout oficial en lugar de git pull
   - checkout: self
-    clean: true  # Esto reemplaza tu git reset/clean
+    clean: true 
     fetchDepth: 1  # Solo el último commit para mayor velocidad
 
   # Paso 2: Build de Docker
@@ -40,7 +40,10 @@ steps:
       containerName: $(DOCKER_IMAGE_NAME)
       imageName: $(DOCKER_IMAGE_NAME):latest
       ports: $(PORT)
-      envVars: |
+      environmentVariables: |
         ASPNETCORE_ENVIRONMENT=$(ENVIRONMENT)
         ConnectionStrings__DefaultConnection=$(POSTGRES_CONNECTION_STRING)
+      volumes: ''
       network: $(DOCKER_NETWORK)
+      detach: true
+      restartPolicy: no
