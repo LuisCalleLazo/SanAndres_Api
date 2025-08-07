@@ -96,28 +96,27 @@ namespace SanAndres_Api.Controllers
     }
 
 
-    // [HttpPost("autoparts")]
-    // public async Task<IActionResult> SyncronizationAutoparts([FromBody] List<AutopartOfSellerDto> syncData)
-    // {
-    //   try
-    //   {
-    //     var userId = Int32.Parse(User.FindFirst("id")?.Value);
-    //     var seller = User.FindFirst("seller")?.Value;
+    [HttpPost("autoparts")]
+    public async Task<IActionResult> SyncronizationAutoparts([FromForm] List<AutopartSyncDto> syncData)
+    {
+      try
+      {
+        var seller = User.FindFirst("seller")?.Value;
 
-    //     if (seller != "True")
-    //       return Unauthorized("Usuario no autorizado");
+        if (seller != "True")
+          return Unauthorized("Usuario no autorizado");
 
-    //     var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+        var result = await _service.SyncAutoparts(syncData);
 
-    //     return Ok(result);
-    //   }
-    //   catch (Exception err)
-    //   {
-    //     _logger.LogError(err.Message);
-    //     Console.WriteLine(err.StackTrace);
-    //     return BadRequest(err.Message);
-    //   }
-    // }
+        return Ok(result);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
 
     // [HttpPost("buys")]
     // public async Task<IActionResult> SyncronizationBuys([FromBody] List<AutopartOfSellerDto> syncData)

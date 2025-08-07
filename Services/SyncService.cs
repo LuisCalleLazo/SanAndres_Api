@@ -12,17 +12,21 @@ namespace SanAndres_Api.Services
     private readonly ITRepository _repo;
     private readonly IMapper _mapper;
     private readonly ISaleService _saleService;
-    public SyncService(ITRepository repo, IMapper mapper, ISaleService saleService)
+    private readonly IAutopartService _autopartService;
+    private readonly ICloudinaryService _cloudinary;
+    public SyncService(ITRepository repo, IMapper mapper, ISaleService saleService, IAutopartService autopartService, ICloudinaryService cloudinary)
     {
       _repo = repo;
       _mapper = mapper;
       _saleService = saleService;
+      _autopartService = autopartService;
+      _cloudinary = cloudinary;
     }
 
     public async Task<List<AutopartOfSellerDto>> SyncAutopartsOfSeller(int sellerId, List<AutopartOfSellerSyncDto> syncData)
     {
       var existingAutoparts = await _repo.GetQueryable<AutopartOfSeller>()
-           .Where(x => x.SellerId == sellerId)
+           .Where(x => x.SellerId == sellerId && x.DeleteAt == DateTime.MinValue)
            .ToListAsync();
 
       foreach (var dto in syncData)
@@ -67,7 +71,6 @@ namespace SanAndres_Api.Services
 
       return _mapper.Map<List<AutopartOfSellerDto>>(autopartsFinally);
     }
-
 
     public async Task<List<CustomerOfSellerDto>> SyncCustomerOfSeller(int sellerId, List<CustomerOfSellerSyncDto> syncData)
     {
@@ -114,7 +117,6 @@ namespace SanAndres_Api.Services
       return _mapper.Map<List<CustomerOfSellerDto>>(customersFinally);
     }
 
-
     public async Task<List<SaleDetailDto>> SyncSales(int sellerId, List<SaleDetailSyncDto> syncData)
     {
       var existingSales = await GetExistingSales(sellerId);
@@ -128,7 +130,7 @@ namespace SanAndres_Api.Services
     private async Task<List<SaleDetail>> GetExistingSales(int sellerId)
     {
       return await _repo.GetQueryable<SaleDetail>()
-          .Where(x => x.SellerId == sellerId)
+          .Where(x => x.SellerId == sellerId && x.DeleteAt == DateTime.MinValue)
           .Include(x => x.Sales)
           .ToListAsync();
     }
@@ -265,5 +267,171 @@ namespace SanAndres_Api.Services
       await _repo.UpdateRange(itemsToDelete);
     }
 
+    public async Task<List<AutopartToListDto>> SyncAutoparts(List<AutopartSyncDto> syncData)
+    {
+      var existingAutoparts = await _repo.GetQueryable<Autopart>()
+          .Include(a => a.AutopartInfos)
+          .Include(a => a.AutopartAssets)
+          .ToListAsync();
+
+      foreach (var dto in syncData)
+      {
+        var existingAutopart = existingAutoparts.FirstOrDefault(x => x.Id == dto?.RefId);
+
+        if (existingAutopart != null)
+        {
+          existingAutopart.BrandId = dto.BrandId;
+          existingAutopart.Name = dto.Name;
+          existingAutopart.CategoryId = dto.CategoryId;
+          existingAutopart.DeleteAt = DateTime.MinValue;
+          await _repo.Update(existingAutopart);
+
+          await SyncAutopartInfos(existingAutopart.Id, dto.Infos);
+
+          await SyncAutopartAssets(existingAutopart.Id, dto.Assets);
+        }
+        else
+        {
+          var newAutopart = _mapper.Map<Autopart>(dto);
+          await _repo.Create(newAutopart);
+
+          if (dto.Infos != null && dto.Infos.Any())
+          {
+            var newInfos = dto.Infos.Select(info => new AutopartInfo
+            {
+              Value = info.Value,
+              TypeId = info.TypeId,
+              AutopartId = newAutopart.Id
+            }).ToList();
+
+            await _repo.CreateRange(newInfos);
+          }
+
+          if (dto.Assets != null && dto.Assets.Any())
+          {
+            var newAssets = new List<AutopartAsset>();
+            foreach (var assetDto in dto.Assets)
+            {
+              var assetPath = assetDto.Asset != null
+                  ? _cloudinary.UploadFile(assetDto.Asset, $"SanAndres/Assets")
+                  : null;
+
+              newAssets.Add(new AutopartAsset
+              {
+                Asset = assetPath,
+                Description = assetDto.Description,
+                AutopartId = newAutopart.Id
+              });
+            }
+
+            await _repo.CreateRange(newAssets);
+          }
+        }
+      }
+
+      var autopartsToDelete = existingAutoparts
+          .Where(existing => !syncData.Any(dto => dto.RefId == existing.Id))
+          .ToList();
+
+      foreach (var autopart in autopartsToDelete)
+      {
+        autopart.DeleteAt = DateTime.UtcNow;
+        await _repo.Update(autopart);
+      }
+
+      return await _autopartService.GetAutoparts();
+    }
+
+    private async Task SyncAutopartInfos(int autopartId, List<AutopartInfoSyncDto> infoDtos)
+    {
+      if (infoDtos == null) return;
+
+      var existingInfos = await _repo.GetQueryable<AutopartInfo>()
+          .Where(x => x.AutopartId == autopartId)
+          .ToListAsync();
+
+      foreach (var infoDto in infoDtos)
+      {
+        var existingInfo = existingInfos.FirstOrDefault(x => x.Id == infoDto.RefId);
+
+        if (existingInfo != null)
+        {
+          existingInfo.Value = infoDto.Value;
+          existingInfo.TypeId = infoDto.TypeId;
+          await _repo.Update(existingInfo);
+        }
+        else
+        {
+          var newInfo = new AutopartInfo
+          {
+            Value = infoDto.Value,
+            TypeId = infoDto.TypeId,
+            AutopartId = autopartId
+          };
+          await _repo.Create(newInfo);
+        }
+      }
+      
+      var infosToDelete = existingInfos
+              .Where(existing => !infoDtos.Any(dto => dto.RefId == existing.Id))
+              .ToList();
+
+      foreach (var info in infosToDelete)
+      {
+        info.DeleteAt = DateTime.UtcNow;
+        await _repo.Update(info);
+      }
+    }
+
+    private async Task SyncAutopartAssets(int autopartId, List<AutopartAssetSyncDto> assetDtos)
+    {
+      if (assetDtos == null) return;
+
+      var existingAssets = await _repo.GetQueryable<AutopartAsset>()
+          .Where(x => x.AutopartId == autopartId)
+          .ToListAsync();
+
+      foreach (var assetDto in assetDtos)
+      {
+        var existingAsset = existingAssets.FirstOrDefault(x => x.Id == assetDto.RefId);
+
+        if (existingAsset != null)
+        {
+          existingAsset.Description = assetDto.Description;
+
+          if (assetDto.Asset != null)
+          {
+            existingAsset.Asset = _cloudinary.UploadFile(assetDto.Asset, $"SanAndres/Assets");
+          }
+
+          await _repo.Update(existingAsset);
+        }
+        else
+        {
+          var assetPath = assetDto.Asset != null
+              ? _cloudinary.UploadFile(assetDto.Asset, $"SanAndres/Assets")
+              : null;
+
+          var newAsset = new AutopartAsset
+          {
+            Asset = assetPath,
+            Description = assetDto.Description,
+            AutopartId = autopartId
+          };
+
+          await _repo.Create(newAsset);
+        }
+      }
+
+      var assetsToDelete = existingAssets
+        .Where(existing => !assetDtos.Any(dto => dto.RefId == existing.Id))
+        .ToList();
+
+      foreach (var asset in assetsToDelete)
+      {
+        asset.DeleteAt = DateTime.UtcNow;
+        await _repo.Update(asset);
+      }
+    }
   }
 }
