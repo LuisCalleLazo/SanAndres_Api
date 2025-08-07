@@ -48,28 +48,28 @@ namespace SanAndres_Api.Controllers
     }
 
 
-    // [HttpPost("customers")]
-    // public async Task<IActionResult> SyncronizationCustomers([FromBody] List<AutopartOfSellerDto> syncData)
-    // {
-    //   try
-    //   {
-    //     var userId = Int32.Parse(User.FindFirst("id")?.Value);
-    //     var seller = User.FindFirst("seller")?.Value;
+    [HttpPost("customers")]
+    public async Task<IActionResult> SyncronizationCustomers([FromBody] List<CustomerOfSellerSyncDto> syncData)
+    {
+      try
+      {
+        var userId = Int32.Parse(User.FindFirst("id")?.Value);
+        var seller = User.FindFirst("seller")?.Value;
 
-    //     if (seller != "True")
-    //       return Unauthorized("Usuario no autorizado");
+        if (seller != "True")
+          return Unauthorized("Usuario no autorizado");
 
-    //     var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+        var result = await _service.SyncCustomerOfSeller(userId, syncData);
 
-    //     return Ok(result);
-    //   }
-    //   catch (Exception err)
-    //   {
-    //     _logger.LogError(err.Message);
-    //     Console.WriteLine(err.StackTrace);
-    //     return BadRequest(err.Message);
-    //   }
-    // }
+        return Ok(result);
+      }
+      catch (Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(err.Message);
+      }
+    }
 
 
     // [HttpPost("sales")]

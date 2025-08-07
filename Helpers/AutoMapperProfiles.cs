@@ -43,6 +43,8 @@ namespace SanAndres_Api.Helpers
       CreateMap<CustomerToCreateDto, CustomerOfSeller>();
       CreateMap<CustomerToUpdateDto, CustomerOfSeller>();
       CreateMap<CustomerOfSeller, CustomerToDetailDto>();
+      CreateMap<CustomerOfSeller, CustomerOfSellerDto>();
+      CreateMap<CustomerOfSellerSyncDto, CustomerOfSeller>();
     }
     
     private int CalculateAge(DateTime birthDate)
