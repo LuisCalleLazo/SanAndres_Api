@@ -1,5 +1,5 @@
 trigger:
-- main
+- production
 
 variables:
   DOCKER_IMAGE_NAME: 'sanandres_api'
@@ -30,8 +30,8 @@ steps:
 
   # Paso 3: Debug Variables
   - script: |
-      echo "POSTGRES_CONNECTION_STRING: $(POSTGRES_CONNECTION_STRING)"
-      echo "JWT_SECRET_KEY: $(JWT_SECRET_KEY)"
+      echo "CLOUDINARY_API_KEY: $(CLOUDINARY_API_KEY)"
+      echo "CLOUDINARY_NAME: $(CLOUDINARY_NAME)"
     displayName: 'Debug Variables'
 
   # Paso 4: Detener y eliminar contenedor existente

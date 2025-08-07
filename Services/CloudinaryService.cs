@@ -69,7 +69,6 @@ namespace usr_service.Services
       }
       catch (Exception ex)
       {
-        // Log the exception details here
         throw new InvalidOperationException("Failed to upload file to Cloudinary", ex);
       }
     }
