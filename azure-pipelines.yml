@@ -34,17 +34,6 @@ steps:
       docker rm -v $(DOCKER_IMAGE_NAME) || true
     displayName: 'Remove existing container'
 
-  # Paso 4: Ejecutar las migraciones a la bd
-  - script: |
-      docker run --rm \
-        --network "$(DOCKER_NETWORK)" \
-        -e "ConnectionStrings__DefaultConnection=$(POSTGRES_CONNECTION_STRING)" \
-        $(DOCKER_IMAGE_NAME):latest \
-        dotnet ef database update
-    displayName: 'Run EF Core Migrations'
-    env:
-      POSTGRES_CONNECTION_STRING: $(POSTGRES_CONNECTION_STRING)
-  
   # Paso 4: Ejecutar nuevo contenedor con todas las variables
   - script: |
       docker run -d \
