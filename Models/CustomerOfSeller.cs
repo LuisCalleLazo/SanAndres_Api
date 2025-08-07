@@ -1,7 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using SanAndres_Api.Models.Templeates;
 
 namespace SanAndres_Api.Models
 {
+  [Table("customer_of_seller")]
   public class CustomerOfSeller : AuditModel
   {
     public int Id { get; set; }
