@@ -20,7 +20,7 @@ namespace SanAndres_Api.Models
     [JsonIgnore]
     public virtual ICollection<Sale> Sales { get; set; }
 
-    public virtual Customer Customer { get; set; }
+    public virtual CustomerOfSeller Customer { get; set; }
     public virtual Seller Seller { get; set; }
   }
 

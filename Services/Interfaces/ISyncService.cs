@@ -6,5 +6,6 @@ namespace SanAndres_Api.Services.Interfaces
   {
     Task<List<AutopartOfSellerDto>> SyncAutopartsOfSeller(int sellerId, List<AutopartOfSellerSyncDto> syncData);
     Task<List<CustomerOfSellerDto>> SyncCustomerOfSeller(int sellerId, List<CustomerOfSellerSyncDto> syncData);
+    Task<List<SaleDetailDto>> SyncSales(int sellerId, List<SaleDetailSyncDto> syncData);
   }
 }

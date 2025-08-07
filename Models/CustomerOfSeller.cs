@@ -12,5 +12,6 @@ namespace SanAndres_Api.Models
     public string Email { get; set; }
     public int SellerId { get; set; }
     public virtual Seller Seller { get; set; }
+    public virtual ICollection<SaleDetail> SaleDetails { get; set; }
   }
 }

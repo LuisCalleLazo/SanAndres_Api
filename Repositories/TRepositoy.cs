@@ -40,5 +40,22 @@ namespace SanAndres_Api.Repositories
     }
     public IQueryable<T> GetQueryable<T>() where T : class =>
       _context.Set<T>();
+    public async Task CreateRange<T>(IEnumerable<T> entities) where T : class
+    {
+      await _context.Set<T>().AddRangeAsync(entities);
+      await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateRange<T>(IEnumerable<T> entities) where T : class
+    {
+      _context.Set<T>().UpdateRange(entities);
+      await _context.SaveChangesAsync();
+    }
+
+    public async Task RemoveRange<T>(IEnumerable<T> entities) where T : class
+    {
+      _context.Set<T>().RemoveRange(entities);
+      await _context.SaveChangesAsync();
+    }
   }
 }

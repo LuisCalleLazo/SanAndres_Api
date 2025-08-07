@@ -11,7 +11,6 @@ namespace SanAndres_Api.Models
     [Key]
     public int Id { get; set; }
     [JsonIgnore]
-    public virtual ICollection<SaleDetail> SaleDetails { get; set; }
     public virtual User User { get; set; }
   }
 }

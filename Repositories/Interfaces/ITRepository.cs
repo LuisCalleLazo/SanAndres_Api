@@ -8,5 +8,8 @@ namespace SanAndres_Api.Repositories.Interfaces
     Task Update<T>(T entity) where T : class;
     Task Remove<T>(T entity) where T : class;
     IQueryable<T> GetQueryable<T>() where T : class;
+    Task CreateRange<T>(IEnumerable<T> entities) where T : class;
+    Task UpdateRange<T>(IEnumerable<T> entities) where T : class;
+    Task RemoveRange<T>(IEnumerable<T> entities) where T : class;
   }
 }
