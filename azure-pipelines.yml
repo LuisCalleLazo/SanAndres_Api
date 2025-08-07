@@ -28,20 +28,24 @@ steps:
       buildContext: '.'
       tags: latest
 
-  # Paso 3: Debug Variables
-  - script: |
-      echo "CLOUDINARY_API_KEY: $(CLOUDINARY_API_KEY)"
-      echo "CLOUDINARY_NAME: $(CLOUDINARY_NAME)"
-    displayName: 'Debug Variables'
-
-  # Paso 4: Detener y eliminar contenedor existente
+  # Paso 3: Detener y eliminar contenedor existente
   - script: |
       docker stop $(DOCKER_IMAGE_NAME) || true
       docker rm -v $(DOCKER_IMAGE_NAME) || true
     displayName: 'Remove existing container'
 
+  # Paso 4: Ejecutar las migraciones a la bd
+  - script: |
+      docker run --rm \
+        --network "$(DOCKER_NETWORK)" \
+        -e "ConnectionStrings__DefaultConnection=$(POSTGRES_CONNECTION_STRING)" \
+        $(DOCKER_IMAGE_NAME):latest \
+        dotnet ef database update
+    displayName: 'Run EF Core Migrations'
+    env:
+      POSTGRES_CONNECTION_STRING: $(POSTGRES_CONNECTION_STRING)
   
-  # Paso 5: Ejecutar nuevo contenedor con todas las variables
+  # Paso 4: Ejecutar nuevo contenedor con todas las variables
   - script: |
       docker run -d \
         -p "$(PORT)" \
