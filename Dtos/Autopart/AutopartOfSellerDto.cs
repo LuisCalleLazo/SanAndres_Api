@@ -2,6 +2,7 @@ namespace SanAndres_Api.Dtos
 {
     public class AutopartOfSellerDto
     {
+        public int Id { get; set; }
         public int AutopartId { get; set; }
         public int AmountUnit { get; set; }
         public int AmountUnitPublic { get; set; }

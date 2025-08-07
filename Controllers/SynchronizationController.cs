@@ -25,30 +25,7 @@ namespace SanAndres_Api.Controllers
     }
 
     [HttpPost("autoparts-of-seller")]
-    public async Task<IActionResult> SyncronizationAutopartOfSeller([FromBody] List<AutopartOfSellerDto> syncData)
-    {
-      try
-      {
-        var userId = Int32.Parse(User.FindFirst("id")?.Value);
-        var seller = User.FindFirst("seller")?.Value;
-
-        if (seller != "True")
-          return Unauthorized("Usuario no autorizado");
-
-        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
-
-        return Ok(result);
-      }
-      catch (Exception err)
-      {
-        _logger.LogError(err.Message);
-        Console.WriteLine(err.StackTrace);
-        return BadRequest(err.Message);
-      }
-    }
-
-    [HttpPost("autoparts")]
-    public async Task<IActionResult> SyncronizationAutoparts([FromBody] List<AutopartOfSellerDto> syncData)
+    public async Task<IActionResult> SyncronizationAutopartOfSeller([FromBody] List<AutopartOfSellerSyncDto> syncData)
     {
       try
       {
@@ -71,77 +48,99 @@ namespace SanAndres_Api.Controllers
     }
 
 
-    [HttpPost("customers")]
-    public async Task<IActionResult> SyncronizationCustomers([FromBody] List<AutopartOfSellerDto> syncData)
-    {
-      try
-      {
-        var userId = Int32.Parse(User.FindFirst("id")?.Value);
-        var seller = User.FindFirst("seller")?.Value;
+    // [HttpPost("customers")]
+    // public async Task<IActionResult> SyncronizationCustomers([FromBody] List<AutopartOfSellerDto> syncData)
+    // {
+    //   try
+    //   {
+    //     var userId = Int32.Parse(User.FindFirst("id")?.Value);
+    //     var seller = User.FindFirst("seller")?.Value;
 
-        if (seller != "True")
-          return Unauthorized("Usuario no autorizado");
+    //     if (seller != "True")
+    //       return Unauthorized("Usuario no autorizado");
 
-        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+    //     var result = await _service.SyncAutopartsOfSeller(userId, syncData);
 
-        return Ok(result);
-      }
-      catch (Exception err)
-      {
-        _logger.LogError(err.Message);
-        Console.WriteLine(err.StackTrace);
-        return BadRequest(err.Message);
-      }
-    }
-
-
-    [HttpPost("sales")]
-    public async Task<IActionResult> SyncronizationSales([FromBody] List<AutopartOfSellerDto> syncData)
-    {
-      try
-      {
-        var userId = Int32.Parse(User.FindFirst("id")?.Value);
-        var seller = User.FindFirst("seller")?.Value;
-
-        if (seller != "True")
-          return Unauthorized("Usuario no autorizado");
-
-        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
-
-        return Ok(result);
-      }
-      catch (Exception err)
-      {
-        _logger.LogError(err.Message);
-        Console.WriteLine(err.StackTrace);
-        return BadRequest(err.Message);
-      }
-    }
+    //     return Ok(result);
+    //   }
+    //   catch (Exception err)
+    //   {
+    //     _logger.LogError(err.Message);
+    //     Console.WriteLine(err.StackTrace);
+    //     return BadRequest(err.Message);
+    //   }
+    // }
 
 
-    [HttpPost("buys")]
-    public async Task<IActionResult> SyncronizationBuys([FromBody] List<AutopartOfSellerDto> syncData)
-    {
-      try
-      {
-        var userId = Int32.Parse(User.FindFirst("id")?.Value);
-        var seller = User.FindFirst("seller")?.Value;
+    // [HttpPost("sales")]
+    // public async Task<IActionResult> SyncronizationSales([FromBody] List<AutopartOfSellerDto> syncData)
+    // {
+    //   try
+    //   {
+    //     var userId = Int32.Parse(User.FindFirst("id")?.Value);
+    //     var seller = User.FindFirst("seller")?.Value;
 
-        if (seller != "True")
-          return Unauthorized("Usuario no autorizado");
+    //     if (seller != "True")
+    //       return Unauthorized("Usuario no autorizado");
 
-        var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+    //     var result = await _service.SyncAutopartsOfSeller(userId, syncData);
 
-        return Ok(result);
-      }
-      catch (Exception err)
-      {
-        _logger.LogError(err.Message);
-        Console.WriteLine(err.StackTrace);
-        return BadRequest(err.Message);
-      }
-    }
+    //     return Ok(result);
+    //   }
+    //   catch (Exception err)
+    //   {
+    //     _logger.LogError(err.Message);
+    //     Console.WriteLine(err.StackTrace);
+    //     return BadRequest(err.Message);
+    //   }
+    // }
 
+
+    // [HttpPost("buys")]
+    // public async Task<IActionResult> SyncronizationBuys([FromBody] List<AutopartOfSellerDto> syncData)
+    // {
+    //   try
+    //   {
+    //     var userId = Int32.Parse(User.FindFirst("id")?.Value);
+    //     var seller = User.FindFirst("seller")?.Value;
+
+    //     if (seller != "True")
+    //       return Unauthorized("Usuario no autorizado");
+
+    //     var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+
+    //     return Ok(result);
+    //   }
+    //   catch (Exception err)
+    //   {
+    //     _logger.LogError(err.Message);
+    //     Console.WriteLine(err.StackTrace);
+    //     return BadRequest(err.Message);
+    //   }
+    // }
+
+    // [HttpPost("autoparts")]
+    // public async Task<IActionResult> SyncronizationAutoparts([FromBody] List<AutopartOfSellerDto> syncData)
+    // {
+    //   try
+    //   {
+    //     var userId = Int32.Parse(User.FindFirst("id")?.Value);
+    //     var seller = User.FindFirst("seller")?.Value;
+
+    //     if (seller != "True")
+    //       return Unauthorized("Usuario no autorizado");
+
+    //     var result = await _service.SyncAutopartsOfSeller(userId, syncData);
+
+    //     return Ok(result);
+    //   }
+    //   catch (Exception err)
+    //   {
+    //     _logger.LogError(err.Message);
+    //     Console.WriteLine(err.StackTrace);
+    //     return BadRequest(err.Message);
+    //   }
+    // }
 
   }
 }

@@ -4,6 +4,6 @@ namespace SanAndres_Api.Services.Interfaces
 {
   public interface ISyncService
   {
-    Task<List<AutopartOfSellerDto>> SyncAutopartsOfSeller(int sellerId, List<AutopartOfSellerDto> syncData);
+    Task<List<AutopartOfSellerDto>> SyncAutopartsOfSeller(int sellerId, List<AutopartOfSellerSyncDto> syncData);
   }
 }

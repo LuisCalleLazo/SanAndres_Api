@@ -17,16 +17,15 @@ namespace SanAndres_Api.Services
       _mapper = mapper;
     }
 
-    public async Task<List<AutopartOfSellerDto>> SyncAutopartsOfSeller(int sellerId, List<AutopartOfSellerDto> syncData)
+    public async Task<List<AutopartOfSellerDto>> SyncAutopartsOfSeller(int sellerId, List<AutopartOfSellerSyncDto> syncData)
     {
       var existingAutoparts = await _repo.GetQueryable<AutopartOfSeller>()
            .Where(x => x.SellerId == sellerId)
            .ToListAsync();
 
-      foreach (var dto in syncData)
+      foreach (var dto in syncData.Where(x => x.RefId != 0 || x.RefId != null))
       {
-        var existing = existingAutoparts.FirstOrDefault(x =>
-            x.AutopartId == dto.AutopartId && x.SellerId == sellerId);
+        var existing = existingAutoparts.FirstOrDefault(x => x.Id == dto?.RefId);
 
         if (existing != null)
         {
@@ -50,7 +49,7 @@ namespace SanAndres_Api.Services
       }
 
       var autopartsToDelete = existingAutoparts
-              .Where(existing => !syncData.Any(dto => dto.AutopartId == existing.AutopartId))
+              .Where(existing => !syncData.Any(dto => dto.RefId == existing.Id))
               .ToList();
 
       foreach (var autopart in autopartsToDelete)
