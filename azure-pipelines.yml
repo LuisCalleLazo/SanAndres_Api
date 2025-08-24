@@ -10,7 +10,8 @@ variables:
 
 pool:
   name: Default
-
+jobs:
+  - job: 
 steps:
   # Paso 1: Checkout del código
   - checkout: self

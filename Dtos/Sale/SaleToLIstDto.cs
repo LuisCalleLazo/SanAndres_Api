@@ -19,6 +19,8 @@ namespace SanAndres_Api.Dtos
   {
     public int Id { get; set; }
     public string AutopartName { get; set; }
+    public int AutopartId { get; set; }
+    public int SaleDetailId { get; set; }
     public string AutopartAsset { get; set; }
     public int Amount { get; set; }
     public decimal Price { get; set; }

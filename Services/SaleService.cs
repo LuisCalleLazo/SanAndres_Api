@@ -60,6 +60,8 @@ namespace SanAndres_Api.Services
       return sales?.Select(s => new SaleDto
       {
         Id = s.Id,
+        AutopartId = s.AutopartId,
+        SaleDetailId = s.SaleDetailId,
         AutopartName = s.Autopart?.Name,
         AutopartAsset = s.Autopart?.AutopartAssets?.FirstOrDefault()?.Asset,
         Amount = s.Amount,
